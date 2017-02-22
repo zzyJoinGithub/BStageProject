@@ -69,7 +69,7 @@ public class HomePageFragment extends BaseFragment {
 //        设置标题栏未选中与选中的颜色
         tabLayoutTitle.setTabTextColors(getResources().
                 getColor(R.color.colorGray), getResources().getColor(R.color.colorBlue));
-//        设置导航线颜色
+//        设置导航线不显示
         tabLayoutTitle.setSelectedTabIndicatorColor(Color.alpha(0));
         tabLayoutTitle.setupWithViewPager(homepageVp);
 
