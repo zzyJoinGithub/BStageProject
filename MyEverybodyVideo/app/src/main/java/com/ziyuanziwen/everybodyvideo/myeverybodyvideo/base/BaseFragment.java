@@ -47,12 +47,12 @@ public abstract class BaseFragment extends Fragment {
          */
         // 定制界面流程
         // 1.绑定跟布局
-        View rootView = inflater.inflate(R.layout.fragment_base_rootlayout,container,false);
+        View rootView = inflater.inflate(R.layout.fragment_base_rootlayout, container, false);
 
         LinearLayout rootLayout = (LinearLayout) rootView.findViewById(R.id.baseFragment_rootlayout);
 
         // 2.处理子界面的布局
-        View childView = inflater.inflate(getLayout(),container,false);
+        View childView = inflater.inflate(getLayout(), container, false);
         // 3.将子界面加入根布局
         rootLayout.addView(childView);
 
@@ -68,16 +68,18 @@ public abstract class BaseFragment extends Fragment {
 //        });
 
         /* 4.处理标题栏 组件初始化*/
-        RelativeLayout titleLayout = byView(rootView,R.id.title_rootlayout);
-        ImageView backIv = byView(rootView,R.id.title_rootlayout_backIv);
-        TextView titleTv = byView(rootView,R.id.title_rootlayout_middleTv);
-        ImageView rightIv = byView(rootView,R.id.title_rootlayout_rightIv);
+        RelativeLayout titleLayout = byView(rootView, R.id.title_rootlayout);
+        ImageView backIv = byView(rootView, R.id.title_rootlayout_backIv);
+        TextView titleTv = byView(rootView, R.id.title_rootlayout_middleTv);
+        ImageView rightIv = byView(rootView, R.id.title_rootlayout_rightIv);
 
-        initTitle(titleLayout,backIv,titleTv,rightIv);
+        initTitle(titleLayout, backIv, titleTv, rightIv);
         return rootView;
     }
+
     //子类复写(重写) 引入视图 的方法
     protected abstract int getLayout();
+
     //子类复写(重写) 设置标题栏的方法
     protected abstract void initTitle(RelativeLayout titleLayout, ImageView backIv, TextView titleTv, ImageView rightIv);
 
@@ -89,6 +91,7 @@ public abstract class BaseFragment extends Fragment {
         //初始化当前页面的组件
         initView(view);
     }
+
     //子类复写(重写) 绑定组件初始化组件 的方法
     protected abstract void initView(View view);
 
@@ -99,23 +102,26 @@ public abstract class BaseFragment extends Fragment {
         //初始化数据 逻辑代码等
         initData();
     }
+
     //子类复写(重写) 初始化数据 逻辑代码等 的方法
     protected abstract void initData();
 
     /**
-     *  findViewById精简 (组件)
-     * @param view      组件所在视图
-     * @param resId     组件id
-     * @param <T>       组件的泛型
-     * @return          返回组件的findviewbyid
+     * findViewById精简 (组件)
+     *
+     * @param view  组件所在视图
+     * @param resId 组件id
+     * @param <T>   组件的泛型
+     * @return 返回组件的findviewbyid
      */
-    protected <T extends View> T byView(View view,int resId) {
+    protected <T extends View> T byView(View view, int resId) {
         return (T) view.findViewById(resId);
     }
 
     /**
-     *     跳转
-     * @param to    要跳转到的Activity
+     * 跳转
+     *
+     * @param to 要跳转到的Activity
      */
     protected void goTo(Class<? extends BaseActivity> to) {
         Intent intent = new Intent();
@@ -126,9 +132,10 @@ public abstract class BaseFragment extends Fragment {
 
     /**
      * 跳转传String
-     * @param to            要跳转到的Activity
-     * @param key           跳转传值的key值
-     * @param extraValue    跳转传String类型的值
+     *
+     * @param to         要跳转到的Activity
+     * @param key        跳转传值的key值
+     * @param extraValue 跳转传String类型的值
      */
     protected void goTo(Class<? extends BaseActivity> to, String key, String extraValue) {
         Intent intent = new Intent(mContext, to);
@@ -137,9 +144,10 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     *     传不确定个数和类型的对象
-     * @param to        要跳转到的Activity
-     * @param bundle    由于要传的值是不确定个数和类型 所以需要借助bundle进行传递
+     * 传不确定个数和类型的对象
+     *
+     * @param to     要跳转到的Activity
+     * @param bundle 由于要传的值是不确定个数和类型 所以需要借助bundle进行传递
      */
     protected void goTo(Class<? extends BaseActivity> to, Bundle bundle) {
         Intent intent = new Intent(mContext, to);
