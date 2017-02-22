@@ -29,4 +29,5 @@
 
     <!--结束-->
     <dimen name="layout_margin_end_twenty">20dp</dimen>
+    <dimen name="layout_margin_end_ten">10dp</dimen>
 </resources>

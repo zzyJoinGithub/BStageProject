@@ -73,6 +73,7 @@ public abstract class BaseFragment extends Fragment {
         TextView titleTv = byView(rootView, R.id.title_rootlayout_middleTv);
         ImageView rightIv = byView(rootView, R.id.title_rootlayout_rightIv);
 
+
         initTitle(titleLayout, backIv, titleTv, rightIv);
         return rootView;
     }
