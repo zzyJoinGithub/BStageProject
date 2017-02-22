@@ -15,6 +15,11 @@
     <dimen name="layout_width_zero">0dp</dimen>
 
     <!--高度-->
-    <dimen name="layout_height_one_hundred_and_fifty">150dp</dimen><!--权重-->
+    <dimen name="layout_height_one_hundred_and_fifty">150dp</dimen>
+
+
+    <!--字体-->
+    <dimen name="text_size_fifteen">15sp</dimen>
+
 
 </resources>
