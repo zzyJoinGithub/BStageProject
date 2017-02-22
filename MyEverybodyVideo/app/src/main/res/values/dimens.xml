@@ -6,10 +6,15 @@
     <!--四个方向-->
     <dimen name="layout_margin_five">5dp</dimen>
 
+    <!--高度-->
+    <dimen name="layout_height_seventy">70dp</dimen>
+    <dimen name="layout_height_fifty">50dp</dimen>
+    <dimen name="layout_height_zero">0dp</dimen>
+
+    <!--宽度-->
+    <dimen name="layout_width_zero">0dp</dimen>
 
     <!--高度-->
-    <dimen name="layout_height_one_hundred_and_fifty">150dp</dimen>
+    <dimen name="layout_height_one_hundred_and_fifty">150dp</dimen><!--权重-->
 
-
-    
 </resources>
