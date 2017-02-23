@@ -31,6 +31,7 @@
 
 
     <ImageView
+        android:id="@+id/fragment_subscribe"
         android:layout_width="@dimen/layout_width_eighty"
         android:layout_height="@dimen/layout_height_thirty"
         android:layout_alignParentRight="true"

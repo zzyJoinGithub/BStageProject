@@ -7,4 +7,5 @@
     <string name="find">发现</string>
     <string name="recommendForYou">为你推荐</string>
     <string name="test">测试</string>
+    <string name="alreadyLoaded">已经加载完毕</string>
 </resources>
