@@ -13,21 +13,32 @@
     <dimen name="layout_height_sixty">60dp</dimen>
     <dimen name="layout_height_one_hundred_and_fifty">150dp</dimen>
     <dimen name="layout_height_thirty">30dp</dimen>
-
+    <dimen name="layout_height_ten">10dp</dimen>
     <!--宽度-->
     <dimen name="layout_width_zero">0dp</dimen>
+    <dimen name="layout_width_thirty">30dp</dimen>
     <dimen name="layout_width_sixty">60dp</dimen>
     <dimen name="layout_width_eighty">80dp</dimen>
 
 
     <!--字体-->
     <dimen name="text_size_fifteen">15sp</dimen>
+    <dimen name="text_size_ten">10sp</dimen>
     <dimen name="text_size_twenty">20sp</dimen>
 
     <!--开始-->
     <dimen name="layout_margin_start_ten">10dp</dimen>
+    <dimen name="layout_margin_start_five">5dp</dimen>
 
     <!--结束-->
     <dimen name="layout_margin_end_twenty">20dp</dimen>
     <dimen name="layout_margin_end_ten">10dp</dimen>
+    <dimen name="layout_margin_end_fifteen">15dp</dimen>
+    <dimen name="layout_margin_end_five">5dp</dimen>
+
+    <!--距上部-->
+    <dimen name="layout_margin_top_ten">10dp</dimen>
+    <!--距下部-->
+    <dimen name="layout_margin_bottom_five">5dp</dimen>
+    <dimen name="layout_margin_bottom_ten">10dp</dimen>
 </resources>
