@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="@dimen/layout_width_five"
+            android:layout_height="@dimen/layout_height_twenty"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:background="@color/colorBlue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:text="UP主推荐"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fragment_choiceUpMainRecommendMoreTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:text="更多"
+            android:textSize="@dimen/text_size_ten"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/fragment_choiceUpMainRecommendRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_top_five" />
+
+
+</LinearLayout>

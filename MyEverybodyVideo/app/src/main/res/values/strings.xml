@@ -8,4 +8,6 @@
     <string name="recommendForYou">为你推荐</string>
     <string name="test">测试</string>
     <string name="alreadyLoaded">已经加载完毕</string>
+    <string name="todayRecommend">今日推荐</string>
+    <string name="billboard">排行榜</string>
 </resources>

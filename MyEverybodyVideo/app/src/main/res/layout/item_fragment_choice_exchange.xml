@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorNearWhite"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/fragment_choiceExchangeRv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height_thirty">
+
+        <TextView
+            android:id="@+id/fragment_choiceExchangeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="换一批看看"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/fragment_choiceExchangeTv"
+            android:src="@mipmap/ic_refresh" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

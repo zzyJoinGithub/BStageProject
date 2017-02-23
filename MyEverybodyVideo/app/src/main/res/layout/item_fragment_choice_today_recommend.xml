@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/fragment_choiceTodayRecommendIv"
+            android:layout_width="@dimen/layout_width_one_hundred_and_seventy_five"
+            android:layout_height="@dimen/layout_height_one_hundred"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_five"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/fragment_choiceTodayRecommendTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/fragment_choiceTodayRecommendIv"
+            android:layout_alignRight="@+id/fragment_choiceTodayRecommendIv"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_five"
+            android:layout_marginEnd="@dimen/layout_margin_end_five"
+            android:background="@drawable/time_shape"
+            android:text="@string/test"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_ten" />
+
+        <TextView
+            android:layout_width="@dimen/layout_width_one_hundred_and_seventy_five"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_choiceTodayRecommendIv"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_bottom_five"
+            android:text="@string/test"
+            android:textSize="@dimen/text_size_fifteen" />
+    </RelativeLayout>
+
+</LinearLayout>

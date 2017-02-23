@@ -46,6 +46,13 @@ public abstract class BaseFragment extends Fragment {
          * 2.将getLayout方法获得的每个子类的布局加入到大的布局中
          */
         // 定制界面流程
+        /**
+         * 不使用toolbar作为fragment基类的标题栏是因为toolBar在不同
+         * fragment的切换中导致toolBar重叠显示(原因是toolBar的设置需要getActivity...什么的
+         * 反正就是根据Activity设置的[Activity还必须是AppCompatActivity的子类才行],又由于
+         * Fragment依存于Activity,Activity为同一个的时候,会导致重叠显示)
+         */
+
         // 1.绑定跟布局
         View rootView = inflater.inflate(R.layout.fragment_base_rootlayout, container, false);
 
