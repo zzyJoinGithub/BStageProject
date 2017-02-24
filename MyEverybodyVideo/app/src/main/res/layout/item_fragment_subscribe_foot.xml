@@ -7,15 +7,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_height_fifty"
+        android:layout_height="wrap_content"
         android:background="@color/colorLightGrey">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:alpha="0.5"
             android:gravity="center"
             android:text="@string/alreadyLoaded"
-            android:alpha="0.5"
             android:textSize="@dimen/text_size_fifteen" />
     </LinearLayout>
 </LinearLayout>
