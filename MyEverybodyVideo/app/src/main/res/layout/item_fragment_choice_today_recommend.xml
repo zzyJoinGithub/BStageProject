@@ -5,11 +5,11 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/fragment_choiceTodayRecommendIv"
+            android:id="@+id/fragment_choiceTodayRecommendPictureIv"
             android:layout_width="@dimen/layout_width_one_hundred_and_seventy_five"
             android:layout_height="@dimen/layout_height_one_hundred"
             android:layout_marginStart="@dimen/layout_margin_start_ten"
@@ -20,8 +20,8 @@
             android:id="@+id/fragment_choiceTodayRecommendTimeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/fragment_choiceTodayRecommendIv"
-            android:layout_alignRight="@+id/fragment_choiceTodayRecommendIv"
+            android:layout_alignBottom="@+id/fragment_choiceTodayRecommendPictureIv"
+            android:layout_alignRight="@+id/fragment_choiceTodayRecommendPictureIv"
             android:layout_marginBottom="@dimen/layout_margin_bottom_five"
             android:layout_marginEnd="@dimen/layout_margin_end_five"
             android:background="@drawable/time_shape"
@@ -30,13 +30,17 @@
             android:textSize="@dimen/text_size_ten" />
 
         <TextView
-            android:layout_width="@dimen/layout_width_one_hundred_and_seventy_five"
+            android:id="@+id/fragment_choiceTodayRecommendTitleTv"
+            android:layout_width="@dimen/layout_width_one_hundred_and_fifty"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_choiceTodayRecommendIv"
+            android:layout_below="@+id/fragment_choiceTodayRecommendPictureIv"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/layout_margin_start_ten"
             android:layout_marginTop="@dimen/layout_margin_bottom_five"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:text="@string/test"
-            android:textSize="@dimen/text_size_fifteen" />
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </LinearLayout>
