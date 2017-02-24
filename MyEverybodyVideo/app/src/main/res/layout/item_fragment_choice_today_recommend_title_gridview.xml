@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="@dimen/layout_width_five"
+            android:layout_height="@dimen/layout_height_twenty"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:background="@color/colorBlue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:text="@string/todayRecommend"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/fragment_choiceMoreIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:background="@mipmap/ic_arrow_right" />
+
+        <TextView
+            android:id="@+id/fragment_choiceBillboardTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_five"
+            android:layout_toLeftOf="@+id/fragment_choiceMoreIv"
+            android:text="@string/billboard" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:layout_toLeftOf="@+id/fragment_choiceBillboardTv"
+            android:background="@mipmap/ic_home_cup" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/fragment_choiceGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="2"/>
+
+</LinearLayout>

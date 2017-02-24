@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="@dimen/layout_width_one_hundred_and_thirty"
+        android:layout_height="@dimen/layout_height_one_hundred_and_seventy"
+        android:background="@color/colorAccent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fragment_choiceUpMainRecommendCircleIv"
+            android:layout_width="@dimen/layout_width_thirty"
+            android:layout_height="@dimen/layout_height_thirty"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/fragment_choiceUpMainRecommendTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_choiceUpMainRecommendCircleIv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:text="@string/test"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fragment_choiceUpMainRecommendContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_choiceUpMainRecommendTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/layout_margin_top_five"
+            android:text="@string/test"
+            android:textSize="@dimen/text_size_ten" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

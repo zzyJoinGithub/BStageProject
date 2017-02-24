@@ -4,33 +4,34 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/fragment_subscribeCircleIv"
+        android:id="@+id/fragment_subscribeItemCircleIv"
         android:layout_width="@dimen/layout_width_sixty"
         android:layout_height="@dimen/layout_height_sixty"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/fragment_subscribeTitle"
+        android:id="@+id/fragment_subscribeItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/fragment_subscribeCircleIv"
+        android:layout_toRightOf="@+id/fragment_subscribeItemCircleIv"
         android:text="@string/test"
         android:textSize="@dimen/text_size_twenty"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/fragment_subscribeNumOfPeople"
+        android:id="@+id/fragment_subscribeItemNumOfPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/fragment_subscribeTitle"
+        android:layout_below="@+id/fragment_subscribeItemTitle"
         android:layout_marginStart="@dimen/layout_margin_start_ten"
-        android:layout_toRightOf="@+id/fragment_subscribeCircleIv"
+        android:layout_toRightOf="@+id/fragment_subscribeItemCircleIv"
         android:text="@string/test" />
 
 
     <ImageView
+        android:id="@+id/fragment_subscribeItem"
         android:layout_width="@dimen/layout_width_eighty"
         android:layout_height="@dimen/layout_height_thirty"
         android:layout_alignParentRight="true"

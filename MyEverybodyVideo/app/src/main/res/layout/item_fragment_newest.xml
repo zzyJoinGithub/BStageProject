@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height_one_hundred_and_fifty">
+
+        <ImageView
+            android:id="@+id/fragment_newestItemIv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_five"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_ten" />
+
+        <ImageView
+            android:id="@+id/fragment_newestItemPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/img_video_play" />
+
+        <!--shape图片依据内容的大小而改变的-->
+        <TextView
+            android:id="@+id/fragment_newestItemTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_ten"
+            android:layout_marginEnd="@dimen/layout_margin_end_fifteen"
+            android:background="@drawable/time_shape"
+            android:text="@string/test"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_ten" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fragment_newestItemCircleIv"
+            android:layout_width="@dimen/layout_width_thirty"
+            android:layout_height="@dimen/layout_height_thirty"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/fragment_newestItemTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/layout_margin_start_five"
+            android:layout_toRightOf="@+id/fragment_newestItemCircleIv"
+            android:text="@string/test"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/fragment_newestItemShareIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:src="@mipmap/ic_share_n_32" />
+
+        <ImageView
+            android:id="@+id/fragment_newestItemLikeIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:layout_toLeftOf="@+id/fragment_newestItemShareIv"
+            android:src="@mipmap/ic_like_" />
+
+        <ImageView
+            android:id="@+id/fragment_newestItemContentIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:layout_toLeftOf="@+id/fragment_newestItemLikeIv"
+            android:src="@mipmap/ic_comment_32" />
+    </RelativeLayout>
+</LinearLayout>
