@@ -23,6 +23,7 @@
     <dimen name="layout_width_thirty">30dp</dimen>
     <dimen name="layout_width_fifty">50dp</dimen>
     <dimen name="layout_width_sixty">60dp</dimen>
+    <dimen name="layout_width_forty">40dp</dimen>
     <dimen name="layout_width_eighty">80dp</dimen>
     <dimen name="layout_width_five">5dp</dimen>
     <dimen name="layout_width_one_hundred_and_thirty">130dp</dimen>
@@ -47,6 +48,7 @@
 
     <!--距上部-->
     <dimen name="layout_margin_top_ten">10dp</dimen>
+    <dimen name="layout_margin_top_fifteen">15dp</dimen>
     <dimen name="layout_margin_top_five">5dp</dimen>
     <!--距下部-->
     <dimen name="layout_margin_bottom_five">5dp</dimen>
