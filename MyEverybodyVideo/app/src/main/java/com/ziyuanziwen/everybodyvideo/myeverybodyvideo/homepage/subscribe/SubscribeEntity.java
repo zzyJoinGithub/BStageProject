@@ -6,6 +6,10 @@ import java.util.List;
  * Created by dllo on 17/2/24.
  */
 
+/**
+ * 订阅的实体类
+ * 作者:赵子文
+ */
 public class SubscribeEntity {
 
 

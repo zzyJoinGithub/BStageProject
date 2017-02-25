@@ -47,12 +47,14 @@ public class SubscribeFragment extends BaseFragment {
         titleLayout.setVisibility(View.GONE);
     }
 
+    //    绑定组件
     @Override
     protected void initView(View view) {
         subscribeLv = (ListView) view.findViewById(R.id.fragment_subscribeLv);
 
     }
 
+    //    初始化实体类集合,适配器,加入尾视图,将listview组件与适配器绑定
     @Override
     protected void initData() {
 
@@ -64,8 +66,10 @@ public class SubscribeFragment extends BaseFragment {
         subscribeLv.setAdapter(adapter);
     }
 
+    //    post网络请求
     private void postRequest() {
 
+//        网址
         String postUrl = "http://api.rr.tv/v3plus/uper/recommendList";
 
         String key1 = "clientVersion";
@@ -77,12 +81,14 @@ public class SubscribeFragment extends BaseFragment {
 //        String key3 = "clientType";
 //        String value3 = "android_%E7%99%BE%E5%BA%A6";
 
+//        初始化集合,并将请求体添加到集合中
         Map<String, String> postMap = new HashMap<>();
         postMap.put(key1, value1);
 //        postMap.put(key2, value2);
 //        postMap.put(key3, value3);
 
-        VolleyManager.getInstance().startStringRequestNet(Request.Method.POST, postUrl, postMap, null,  new OnNetResultListener() {
+//        调用封装好的post网络请求,通过gson解析将结果传入适配器
+        VolleyManager.getInstance().startStringRequestNet(Request.Method.POST, postUrl, postMap, null, new OnNetResultListener() {
             @Override
             public void onSuccessful(String resultStr) {
                 Gson gson = new Gson();
@@ -94,6 +100,7 @@ public class SubscribeFragment extends BaseFragment {
                 adapter.setSubscribeEntityList(subscribeEntityList);
             }
 
+//            当没有解析成功弹出toast
             @Override
             public void onFailure(String errMsg) {
 

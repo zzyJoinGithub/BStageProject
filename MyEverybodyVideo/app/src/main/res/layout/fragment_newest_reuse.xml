@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/Fragment_newestReuseLv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/layout_margin_end_ten"
+        android:layout_marginStart="@dimen/layout_margin_start_ten"
+        android:divider="@color/colorLightGrey"
+        android:dividerHeight="@dimen/layout_height_ten" />
+</LinearLayout>

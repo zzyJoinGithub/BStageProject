@@ -6,17 +6,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_height_one_hundred_and_fifty"
+        android:layout_height="@dimen/layout_height_one_hundred_and_seventy"
         android:layout_marginBottom="@dimen/layout_margin_bottom_five"
-        android:layout_marginEnd="@dimen/layout_margin_end_ten"
-        android:layout_marginStart="@dimen/layout_margin_start_ten"
         android:layout_marginTop="@dimen/layout_margin_top_ten">
 
         <ImageView
             android:id="@+id/fragment_newestItemPictureIv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent" />
+            android:scaleType="fitXY" />
 
         <ImageView
             android:id="@+id/fragment_newestItemPlayIv"
@@ -40,10 +38,9 @@
             android:textSize="@dimen/text_size_ten" />
 
         <TextView
+            android:id="@+id/fragment_newestItemTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/fragment_newestItemPictureIv"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_five"
             android:layout_marginEnd="@dimen/layout_margin_end_forty"
             android:layout_marginStart="@dimen/layout_margin_start_ten"
             android:ellipsize="end"
@@ -54,7 +51,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/layout_margin_bottom_five">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -65,7 +63,7 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/fragment_newestItemTitleTv"
+            android:id="@+id/fragment_newestItemAuthorTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
