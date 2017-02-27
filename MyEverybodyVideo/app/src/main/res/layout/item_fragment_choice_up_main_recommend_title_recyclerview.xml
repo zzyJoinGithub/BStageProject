@@ -36,11 +36,12 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_choiceUpMainRecommendRv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_margin_top_five" />
+        android:layout_height="@dimen/layout_height_zero"
+        android:layout_marginTop="@dimen/layout_margin_top_five"
+        android:layout_weight="1" />
 
 
 </LinearLayout>
