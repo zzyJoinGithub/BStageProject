@@ -47,15 +47,15 @@ public class NewestFragment extends BaseFragment {
 
     }
 
-//    绑定组件
+    //    绑定组件
     @Override
     protected void initView(View view) {
-        newestTl = (TabLayout) view.findViewById(R.id.fragment_newestTabLayout);
-        newestVp = (ViewPager) view.findViewById(R.id.fragment_newestViewPager);
-        addIv = (ImageView) view.findViewById(R.id.fragment_newestAddIv);
+        newestTl = byView(view, R.id.fragment_newestTabLayout);
+        newestVp = byView(view, R.id.fragment_newestViewPager);
+        addIv = byView(view, R.id.fragment_newestAddIv);
     }
 
-//    初始化数据(网络解析, 设置导航栏的颜色, 设置切换文字颜色)
+    //    初始化数据(网络解析, 设置导航栏的颜色, 设置切换文字颜色)
     @Override
     protected void initData() {
         newestList = new ArrayList<>();
@@ -70,7 +70,7 @@ public class NewestFragment extends BaseFragment {
 
     }
 
-//    获取网络数据
+    //    获取网络数据
     private void postRequestTitle() {
 
         String postUrl = "http://api.rr.tv/v3plus/user/myFoucsCategory";

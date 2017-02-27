@@ -50,7 +50,7 @@ public class SubscribeFragment extends BaseFragment {
     //    绑定组件
     @Override
     protected void initView(View view) {
-        subscribeLv = (ListView) view.findViewById(R.id.fragment_subscribeLv);
+        subscribeLv = byView(view, R.id.fragment_subscribeLv);
 
     }
 

@@ -38,6 +38,7 @@
     <dimen name="layout_margin_start_ten">10dp</dimen>
     <dimen name="layout_margin_start_fifteen">15dp</dimen>
     <dimen name="layout_margin_start_five">5dp</dimen>
+    <dimen name="layout_margin_start_fifty">50dp</dimen>
 
     <!--结束-->
     <dimen name="layout_margin_end_twenty">20dp</dimen>
@@ -45,13 +46,19 @@
     <dimen name="layout_margin_end_ten">10dp</dimen>
     <dimen name="layout_margin_end_fifteen">15dp</dimen>
     <dimen name="layout_margin_end_five">5dp</dimen>
+    <dimen name="layout_margin_end_fifty">50dp</dimen>
+
 
     <!--距上部-->
     <dimen name="layout_margin_top_ten">10dp</dimen>
     <dimen name="layout_margin_top_fifteen">15dp</dimen>
     <dimen name="layout_margin_top_five">5dp</dimen>
+    <dimen name="layout_margin_top_thirty">30dp</dimen>
     <!--距下部-->
     <dimen name="layout_margin_bottom_five">5dp</dimen>
     <dimen name="layout_margin_bottom_ten">10dp</dimen>
     <dimen name="layout_margin_bottom_twenty">20dp</dimen>
+
+    <!--距四个方向-->
+    <dimen name="layout_margin_ten">10dp</dimen>
 </resources>

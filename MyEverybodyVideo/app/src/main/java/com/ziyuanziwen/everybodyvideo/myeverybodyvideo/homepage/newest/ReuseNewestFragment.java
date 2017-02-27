@@ -60,7 +60,7 @@ public class ReuseNewestFragment extends BaseFragment {
     //    绑定组件
     @Override
     protected void initView(View view) {
-        reuseLv = (ListView) view.findViewById(R.id.Fragment_newestReuseLv);
+        reuseLv = byView(view, R.id.Fragment_newestReuseLv);
     }
 
     //    初始化数据(适配器, 网络数据)
