@@ -4,8 +4,6 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.ImageManagers;
 
 /**
  * Created by Zzy on 2017/2/23-20:36.

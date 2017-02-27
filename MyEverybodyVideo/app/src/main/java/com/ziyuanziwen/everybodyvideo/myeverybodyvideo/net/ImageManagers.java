@@ -1,4 +1,4 @@
-package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base;
+package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net;
 
 import android.content.Context;
 import android.widget.ImageView;
