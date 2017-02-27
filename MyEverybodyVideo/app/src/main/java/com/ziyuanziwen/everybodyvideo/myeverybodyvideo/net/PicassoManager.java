@@ -4,8 +4,6 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.ImageManagers;
 
 /**
  * Created by Zzy on 2017/2/23-19:26.

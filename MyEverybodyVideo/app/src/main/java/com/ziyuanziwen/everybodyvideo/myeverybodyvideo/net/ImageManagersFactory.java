@@ -1,7 +1,5 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net;
 
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.ImageManagers;
-
 /**
  * Created by Zzy on 2017/2/23-20:50.
  * ✎﹏﹏﹏.₯㎕*﹏﹏﹏

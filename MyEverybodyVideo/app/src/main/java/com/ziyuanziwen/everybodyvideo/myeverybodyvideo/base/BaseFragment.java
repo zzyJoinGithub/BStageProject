@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 
@@ -124,6 +125,11 @@ public abstract class BaseFragment extends Fragment {
      */
     protected <T extends View> T byView(View view, int resId) {
         return (T) view.findViewById(resId);
+    }
+
+    //显示toast的方法
+    protected void showToast(String info){
+        Toast.makeText(mContext, info, Toast.LENGTH_SHORT).show();
     }
 
     /**

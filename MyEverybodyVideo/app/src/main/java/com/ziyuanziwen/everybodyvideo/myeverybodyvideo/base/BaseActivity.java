@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 /**
 <<<<<<< HEAD
@@ -17,6 +18,7 @@ import android.view.View;
  *  规范
  * 1.谁创建的类就在类的声明上方写入 类的功能，作者
  *  Activity基类
+ *
  *  @author  Zzy
  *  例如：
  *  首页-精选
@@ -60,6 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     //    findViewById精简 (组件)
     protected <T extends View> T byView(int resId) {
         return (T) findViewById(resId);
+    }
+
+    //toast专用方法
+    protected void showToast(String info){
+        Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
     }
 
     //    跳转
