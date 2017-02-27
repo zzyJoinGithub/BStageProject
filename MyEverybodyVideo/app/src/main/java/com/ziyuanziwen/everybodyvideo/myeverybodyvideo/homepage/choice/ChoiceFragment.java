@@ -1,5 +1,6 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,7 +17,9 @@ import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseFragment;
 
 public class ChoiceFragment extends BaseFragment {
 
-//    绑定布局
+    private RecyclerView choiceRv;
+
+    //    绑定布局
     @Override
     protected int getLayout() {
         return R.layout.fragment_choice;
@@ -31,11 +34,13 @@ public class ChoiceFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-
+        choiceRv = byView(view, R.id.fragment_choiceRv);
     }
 
     @Override
     protected void initData() {
+
+
 
     }
 }
