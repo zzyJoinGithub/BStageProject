@@ -47,13 +47,14 @@
             android:id="@+id/fragment_choiceDailyBigPictureIv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height_one_hundred_and_seventy"
+            android:scaleType="fitXY"
             android:background="@color/colorAccent" />
 
         <TextView
             android:id="@+id/fragment_choiceDailyBigPictureTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/fragment_choiceDailyBigPictureIv"
+            android:layout_alignBottom="@id/fragment_choiceDailyBigPictureIv"
             android:layout_marginBottom="@dimen/layout_margin_bottom_five"
             android:layout_marginEnd="@dimen/layout_margin_end_forty"
             android:layout_marginStart="@dimen/layout_margin_start_ten"
@@ -66,8 +67,8 @@
             android:id="@+id/fragment_choiceDailyBigPictureTimeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/fragment_choiceDailyBigPictureIv"
-            android:layout_alignRight="@+id/fragment_choiceDailyBigPictureIv"
+            android:layout_alignBottom="@id/fragment_choiceDailyBigPictureIv"
+            android:layout_alignRight="@id/fragment_choiceDailyBigPictureIv"
             android:layout_marginBottom="@dimen/layout_margin_bottom_five"
             android:layout_marginEnd="@dimen/layout_margin_end_five"
             android:background="@drawable/time_shape"
@@ -94,14 +95,15 @@
                 android:id="@+id/fragment_choiceDailySecondPictureFirstIv"
                 android:layout_width="@dimen/layout_width_one_hundred_and_seventy_five"
                 android:layout_height="@dimen/layout_height_one_hundred"
+                android:scaleType="fitXY"
                 android:background="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/fragment_choiceDailySecondPictureFirstTimeTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/fragment_choiceDailySecondPictureFirstIv"
-                android:layout_alignRight="@+id/fragment_choiceDailySecondPictureFirstIv"
+                android:layout_alignBottom="@id/fragment_choiceDailySecondPictureFirstIv"
+                android:layout_alignRight="@id/fragment_choiceDailySecondPictureFirstIv"
                 android:layout_marginBottom="@dimen/layout_margin_bottom_five"
                 android:layout_marginEnd="@dimen/layout_margin_end_five"
                 android:background="@drawable/time_shape"
@@ -113,7 +115,7 @@
                 android:id="@+id/fragment_choiceDailySecondPictureFirstTitleTv"
                 android:layout_width="@dimen/layout_width_one_hundred_and_fifty"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_choiceDailySecondPictureFirstIv"
+                android:layout_below="@id/fragment_choiceDailySecondPictureFirstIv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/layout_margin_top_five"
                 android:ellipsize="end"
@@ -133,6 +135,7 @@
                 android:id="@+id/fragment_choiceDailySecondPictureSecondIv"
                 android:layout_width="@dimen/layout_width_one_hundred_and_seventy_five"
                 android:layout_height="@dimen/layout_height_one_hundred"
+                android:scaleType="fitXY"
                 android:background="@color/colorAccent" />
 
             <TextView
