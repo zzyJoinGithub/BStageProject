@@ -1,6 +1,7 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,58 +13,84 @@ import android.widget.TextView;
 
 //import com.youth.banner.Banner;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BannerBean;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BriefBean;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.DataBean;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.FeaturedBean;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.ImageManagersFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dllo on 17/2/27.
+ * Created by zzy on 17/2/27.
+ * 精选页适配器  zzy
  */
 
 public class ChoiceAdapter extends RecyclerView.Adapter {
 
-    private static final int BANNER = 0;
-    private static final int TODAYRECOMMEND = 1;
-    private static final int SAME = 2;
-    private static final int UPMAINRECOMMEND = 3;
-    private static final int EXCHANGE = 4;
+    private static final int BANNER = 0;                            //轮播图
+    private static final int TODAYRECOMMEND = 1;        //今日推荐
+    private static final int SAME = 2;                              //相同的界面
+    private static final int UPMAINRECOMMEND = 3;   //主推荐
+    private static final int EXCHANGE = 4;                      //换一批
 
-    //    up主推荐集合
-    private List<ChoiceEntity.DataBean.RecommendUpBean> upBeanList;
-    //    轮播图集合
-    private List<ChoiceEntity.DataBean.BannerTopBean> bannerBeanList;
-    //    奥斯卡集合
-    private List<ChoiceEntity.DataBean.OfficalAlbumBean> resultListBeanList;
-    //    今日推荐集合
-    private List<ChoiceEntity.DataBean.TodayRecommendBean> todayRecommendBeanList;
-    //    分类集合
-    private List<ChoiceEntity.DataBean.CategoryListBean> categoryListBeanList;
     private Context context;
 
-
     public ChoiceAdapter(Context context) {
+        super();
         this.context = context;
     }
 
-    public void setUpBeanList(List<ChoiceEntity.DataBean.RecommendUpBean> upBeanList) {
-        this.upBeanList = upBeanList;
+    //所有数据集合
+    private FeaturedBean featuredBean;
+
+    public ChoiceAdapter setFeaturedBean(FeaturedBean featuredBean) {
+        this.featuredBean = featuredBean;
+        notifyDataSetChanged();
+        return this;
     }
 
-    public void setBannerBeanList(List<ChoiceEntity.DataBean.BannerTopBean> bannerBeanList) {
-        this.bannerBeanList = bannerBeanList;
-    }
+    //    //    up主推荐集合
+//    private List<DataBean.RecommendUpBean> upBeanList;
+//    //    轮播图集合
+//    private List<BannerBean> bannerBeanList;
+//    //    奥斯卡集合
+//    private List<DataBean.OfficalAlbumBean> resultListBeanList;
+//    //    今日推荐集合
+//    private List<BriefBean> todayRecommendBeanList;
+//    //    分类集合
+//    private List<DataBean.CategoryBean> categoryListBeanList;
 
-    public void setResultListBeanList(List<ChoiceEntity.DataBean.OfficalAlbumBean> resultListBeanList) {
-        this.resultListBeanList = resultListBeanList;
-    }
-
-    public void setTodayRecommendBeanList(List<ChoiceEntity.DataBean.TodayRecommendBean> todayRecommendBeanList) {
-        this.todayRecommendBeanList = todayRecommendBeanList;
-    }
-
-    public void setCategoryListBeanList(List<ChoiceEntity.DataBean.CategoryListBean> categoryListBeanList) {
-        this.categoryListBeanList = categoryListBeanList;
-    }
-
+//    public ChoiceAdapter setUpBeanList(List<DataBean.RecommendUpBean> upBeanList) {
+//        this.upBeanList = upBeanList;
+//        notifyDataSetChanged();
+//        return this;
+//    }
+//
+//    public ChoiceAdapter setBannerBeanList(List<BannerBean> bannerBeanList) {
+//        this.bannerBeanList = bannerBeanList;
+//        notifyDataSetChanged();
+//        return this;
+//    }
+//
+//    public ChoiceAdapter setResultListBeanList(List<DataBean.OfficalAlbumBean> resultListBeanList) {
+//        this.resultListBeanList = resultListBeanList;
+//        notifyDataSetChanged();
+//        return this;
+//    }
+//
+//    public ChoiceAdapter setTodayRecommendBeanList(List<BriefBean> todayRecommendBeanList) {
+//        this.todayRecommendBeanList = todayRecommendBeanList;
+//        notifyDataSetChanged();
+//        return this;
+//    }
+//
+//    public ChoiceAdapter setCategoryListBeanList(List<DataBean.CategoryBean> categoryListBeanList) {
+//        this.categoryListBeanList = categoryListBeanList;
+//        notifyDataSetChanged();
+//        return this;
+//    }
 
     @Override
     public int getItemViewType(int position) {
@@ -91,7 +118,6 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
                 return UPMAINRECOMMEND;
             default:
                 return BANNER;
-
         }
     }
 
@@ -129,14 +155,75 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
 
         int viewType = getItemViewType(position);
         switch (viewType) {
+            case BANNER:
+                List<String> banners = new ArrayList<>();
+                for (BannerBean bannerBean : featuredBean.getData().getBannerTop()) {
+                    banners.add(bannerBean.getImgUrl());
+                }
+                BannerViewHolder bannerViewHolder = (BannerViewHolder) holder;
+                bannerViewHolder.banner.setImageLoader(new ChoiceBannerTop());
+                bannerViewHolder.banner.setImages(banners);
+                bannerViewHolder.banner.isAutoPlay(true);
+                bannerViewHolder.banner.setDelayTime(2000);
+                bannerViewHolder.banner.start();
+                break;
+            case TODAYRECOMMEND:
+                TodayRecommendViewHolder todayRecommendViewHolder = (TodayRecommendViewHolder) holder;
+                TodayRecommendAdapter todayRecommendAdapter = new TodayRecommendAdapter(context);
+                todayRecommendViewHolder.gridView.setAdapter(todayRecommendAdapter);
+                todayRecommendAdapter.setFeaturedBean(featuredBean);
+                break;
+            case EXCHANGE:
+                ExchangeViewHolder exchangeViewHolder = (ExchangeViewHolder) holder;
+                break;
             case SAME:
-
+                SameViewHolder sameViewHolder = (SameViewHolder) holder;
+                if (3 == position) {
+                    sameViewHolder.fragmentChoiceDailyTitleTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getName());
+                    ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(context, featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(0).getCover(), sameViewHolder.firstIv);
+                    sameViewHolder.firstTitleTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(0).getTitle());
+                    sameViewHolder.firstTimeTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(0).getDuration());
+                    ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(context, featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(1).getCover(), sameViewHolder.secondLeftIv);
+                    sameViewHolder.secondLeftTimeTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(1).getDuration());
+                    sameViewHolder.secondLeftContentTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(1).getBrief());
+                    ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(context, featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(2).getCover(), sameViewHolder.secondRightIv);
+                    sameViewHolder.secondRightTimeTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(2).getDuration());
+                    sameViewHolder.secondRightContentTv.setText(featuredBean.getData().getOfficalAlbum().get(0).getResultList().get(2).getBrief());
+                } else {
+                    int i = 0;
+                    if (position > 4 && position < 8) {
+                         i = position - 5;
+                    } else if (position > 8 && position < 12) {
+                        i = position - 6;
+                    } else if (position == 13 || position == 14){
+                        i = position - 7;
+                    }
+                    sameViewHolder.fragmentChoiceDailyTitleTv.setText(featuredBean.getData().getCategoryList().get(i).getCategoryName());
+                    ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(context, featuredBean.getData().getCategoryList().get(i).getVideoList().get(0).getCover(), sameViewHolder.firstIv);
+                    sameViewHolder.firstTitleTv.setText(featuredBean.getData().getCategoryList().get(i).getVideoList().get(0).getTitle());
+                    sameViewHolder.firstTimeTv.setText(featuredBean.getData().getCategoryList().get(i).getVideoList().get(0).getDuration());
+                    ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(context, featuredBean.getData().getCategoryList().get(i).getVideoList().get(1).getCover(), sameViewHolder.secondLeftIv);
+                    sameViewHolder.secondLeftTimeTv.setText(featuredBean.getData().getCategoryList().get(i).getVideoList().get(1).getDuration());
+                    sameViewHolder.secondLeftContentTv.setText(featuredBean.getData().getCategoryList().get(i).getVideoList().get(1).getBrief());
+                    ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(context, featuredBean.getData().getCategoryList().get(i).getVideoList().get(2).getCover(), sameViewHolder.secondRightIv);
+                    sameViewHolder.secondRightTimeTv.setText(featuredBean.getData().getCategoryList().get(i).getVideoList().get(2).getDuration());
+                    sameViewHolder.secondRightContentTv.setText(featuredBean.getData().getCategoryList().get(i).getVideoList().get(2).getBrief());
+                }
+                break;
+            case UPMAINRECOMMEND:
+                MainRecommendViewHolder mainRecommendViewHolder = (MainRecommendViewHolder) holder;
+                RecommendUpAdapter recommendUpAdapter = new RecommendUpAdapter(context);
+                mainRecommendViewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+                mainRecommendViewHolder.recyclerView.setAdapter(recommendUpAdapter);
+                recommendUpAdapter.setFeaturedBean(featuredBean);
+                break;
         }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+//        return upBeanList != null && bannerBeanList != null && resultListBeanList != null && todayRecommendBeanList != null && categoryListBeanList != null ? 15 : 0;
+        return featuredBean != null ? 15 : 0;
     }
 
 
@@ -180,10 +267,12 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
         ImageView firstIv;
         ImageView secondLeftIv;
         ImageView secondRightIv;
+        TextView fragmentChoiceDailyTitleTv;
 
         public SameViewHolder(View sameView) {
             super(sameView);
 
+            fragmentChoiceDailyTitleTv = (TextView) sameView.findViewById(R.id.fragment_choiceDailyTitleTv);
             sameMoreTv = (TextView) sameView.findViewById(R.id.fragment_choiceDailyMoreTv);
             firstIv = (ImageView) sameView.findViewById(R.id.fragment_choiceDailyBigPictureIv);
             firstTitleTv = (TextView) sameView.findViewById(R.id.fragment_choiceDailyBigPictureTitleTv);
@@ -199,10 +288,12 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
 
     private class MainRecommendViewHolder extends RecyclerView.ViewHolder {
         TextView mainRecommendMoreTv;
+        TextView fragmentChoiceUpMainRecommendTitleTv;
         RecyclerView recyclerView;
 
         public MainRecommendViewHolder(View mainRecommendView) {
             super(mainRecommendView);
+            fragmentChoiceUpMainRecommendTitleTv = (TextView) mainRecommendView.findViewById(R.id.fragment_choiceUpMainRecommendTitleTv);
             mainRecommendMoreTv = (TextView) mainRecommendView.findViewById(R.id.fragment_choiceUpMainRecommendMoreTv);
             recyclerView = (RecyclerView) mainRecommendView.findViewById(R.id.fragment_choiceUpMainRecommendRv);
         }

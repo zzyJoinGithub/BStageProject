@@ -54,6 +54,7 @@
         android:id="@+id/fragment_choiceGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider ="@null"
         android:numColumns="2"/>
 
 </LinearLayout>
