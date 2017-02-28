@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.youth.banner.Banner;
+//import com.youth.banner.Banner;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 
 import java.util.List;
@@ -141,11 +141,11 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
 
 
     private class BannerViewHolder extends RecyclerView.ViewHolder {
-        Banner banner;
+//        Banner banner;
 
         public BannerViewHolder(View bannerView) {
             super(bannerView);
-            banner = (Banner) bannerView.findViewById(R.id.fragment_choiceBanner);
+//            banner = (Banner) bannerView.findViewById(R.id.fragment_choiceBanner);
         }
     }
 

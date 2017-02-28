@@ -5,9 +5,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.youth.banner.Banner
-        android:id="@+id/fragment_choiceBanner"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_height_one_hundred_and_fifty"
-        app:image_scale_type="fit_xy" />
+    <!--<com.youth.banner.Banner-->
+        <!--android:id="@+id/fragment_choiceBanner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/layout_height_one_hundred_and_fifty"-->
+        <!--app:image_scale_type="fit_xy" />-->
 </LinearLayout>
