@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.youth.banner.Banner;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BannerBean;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BriefBean;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.DataBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.FeaturedBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.ImageManagersFactory;
 
