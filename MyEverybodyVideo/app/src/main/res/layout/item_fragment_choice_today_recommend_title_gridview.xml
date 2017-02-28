@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -50,7 +51,7 @@
             android:background="@mipmap/ic_home_cup" />
     </RelativeLayout>
 
-    <GridView
+    <com.ziyuanziwen.everybodyvideo.myeverybodyvideo.customize.RecommandGridView
         android:id="@+id/fragment_choiceGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

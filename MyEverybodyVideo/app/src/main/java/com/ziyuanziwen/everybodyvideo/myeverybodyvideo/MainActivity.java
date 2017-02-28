@@ -1,5 +1,6 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -16,6 +17,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton btnFind;
     private RadioButton btnMine;
     private HomePageFragment homePageFragment;
+
+    /**
+     * 接受Intent对象的生命周期
+     * @param intent
+     */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
 
     @Override
     protected int getLayout() {
