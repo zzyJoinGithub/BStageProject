@@ -57,6 +57,7 @@
     <!--距下部-->
     <dimen name="layout_margin_bottom_five">5dp</dimen>
     <dimen name="layout_margin_bottom_ten">10dp</dimen>
+    <dimen name="layout_margin_bottom_fifteen">15dp</dimen>
     <dimen name="layout_margin_bottom_twenty">20dp</dimen>
 
     <!--距四个方向-->
