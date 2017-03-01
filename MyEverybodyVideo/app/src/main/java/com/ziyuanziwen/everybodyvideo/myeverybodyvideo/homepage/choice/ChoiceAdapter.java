@@ -184,7 +184,7 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Bundle bundle = new Bundle();
-                        bundle.putInt("TODAYRECOMMEND",position);
+                        bundle.putInt("TODAYRECOMMEND",featuredBean.getData().getTodayRecommend().get(position).getId());
                         onRecyclerViewClickListener.onRecyclerViewClickListener(position,bundle);
                     }
                 });

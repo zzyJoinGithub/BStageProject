@@ -3,6 +3,7 @@ package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -12,6 +13,7 @@ import com.android.volley.Request;
 import com.google.gson.Gson;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseFragment;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.customize.OnRecyclerViewClickListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BannerBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BriefBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.DataBean;
@@ -80,7 +82,7 @@ public class ChoiceFragment extends BaseFragment {
 
     private void getPostRequestContent() {
 
-        String postUrl = "http://api.rr.tv/v3plus/index/collection";
+        final String postUrl = "http://api.rr.tv/v3plus/index/collection";
         String key = "clientVersion";
         String value = "3.5.2";
         final ArrayList<Integer> videoId = new ArrayList<>();
@@ -101,6 +103,15 @@ public class ChoiceFragment extends BaseFragment {
                 Bundle bundle = new Bundle();
                 bundle.putIntegerArrayList("videoId", videoId);
                 fragment.setArguments(bundle);
+
+                //给recycler设置点击事件
+                adapter.setOnRecyclerViewClickListener(new OnRecyclerViewClickListener() {
+                    @Override
+                    public void onRecyclerViewClickListener(int position, Bundle bundle) {
+                        int id = bundle.getInt("TODAYRECOMMEND");
+                        LogTool.logI("ChoiceFragment","id:" + id + position);
+                    }
+                });
 
 
 ////                up主推荐
