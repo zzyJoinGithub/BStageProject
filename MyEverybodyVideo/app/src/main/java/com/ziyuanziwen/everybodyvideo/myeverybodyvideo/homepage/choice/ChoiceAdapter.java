@@ -1,11 +1,13 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.youth.banner.Banner;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.customize.OnRecyclerViewClickListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BannerBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.FeaturedBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.ImageManagersFactory;
@@ -34,6 +37,13 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
     private static final int EXCHANGE = 4;                      //换一批
 
     private Context context;
+    private OnRecyclerViewClickListener onRecyclerViewClickListener;
+
+    public ChoiceAdapter setOnRecyclerViewClickListener(OnRecyclerViewClickListener onRecyclerViewClickListener) {
+        this.onRecyclerViewClickListener = onRecyclerViewClickListener;
+        notifyDataSetChanged();
+        return this;
+    }
 
     public ChoiceAdapter(Context context) {
         super();
@@ -170,6 +180,14 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
                 TodayRecommendAdapter todayRecommendAdapter = new TodayRecommendAdapter(context);
                 todayRecommendViewHolder.gridView.setAdapter(todayRecommendAdapter);
                 todayRecommendAdapter.setFeaturedBean(featuredBean);
+                todayRecommendViewHolder.gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("TODAYRECOMMEND",position);
+                        onRecyclerViewClickListener.onRecyclerViewClickListener(position,bundle);
+                    }
+                });
                 break;
             case EXCHANGE:
                 ExchangeViewHolder exchangeViewHolder = (ExchangeViewHolder) holder;
