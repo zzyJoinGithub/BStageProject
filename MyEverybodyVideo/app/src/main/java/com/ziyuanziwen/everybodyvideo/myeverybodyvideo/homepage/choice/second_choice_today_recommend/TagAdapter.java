@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
+
 /**
  * Created by dllo on 17/3/1.
  */
@@ -27,10 +29,12 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TodayRecommendSe
     }
 
     class TodayRecommendSecondTagViewHolder extends RecyclerView.ViewHolder {
-        TextView fragment_choiceTodayRecommendSecondTagTv;
+        TextView fragmentChoiceTodayRecommendSecondTagTv;
 
         public TodayRecommendSecondTagViewHolder(View itemView) {
             super(itemView);
+            fragmentChoiceTodayRecommendSecondTagTv = (TextView) itemView.findViewById(R.id.fragment_choiceTodayRecommendSecondTagTv);
         }
+
     }
 }

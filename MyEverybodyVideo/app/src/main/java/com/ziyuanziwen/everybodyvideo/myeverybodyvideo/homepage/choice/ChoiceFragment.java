@@ -1,6 +1,5 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.Bann
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BriefBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.DataBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.FeaturedBean;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.second_choice_today_recommend.ContentFragment;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.OnNetResultListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.VolleyManager;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.LogTool;
@@ -97,10 +95,7 @@ public class ChoiceFragment extends BaseFragment {
                     videoId.add(featuredBean.getData().getTodayRecommend().get(i).getId());
 
                 }
-                ContentFragment fragment = new ContentFragment();
-                Bundle bundle = new Bundle();
-                bundle.putIntegerArrayList("videoId", videoId);
-                fragment.setArguments(bundle);
+
 
 
 ////                up主推荐

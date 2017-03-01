@@ -16,6 +16,7 @@
             android:background="@color/colorAccent" />
 
         <TextView
+            android:id="@+id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoTimesTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
