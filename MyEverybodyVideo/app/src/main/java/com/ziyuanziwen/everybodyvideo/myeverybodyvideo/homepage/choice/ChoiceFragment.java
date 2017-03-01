@@ -1,5 +1,6 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,12 +16,13 @@ import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.Bann
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BriefBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.DataBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.FeaturedBean;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.second_choice_today_recommend.ContentFragment;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.OnNetResultListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.VolleyManager;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.LogTool;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.ToastTool;
 
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +32,7 @@ import java.util.Map;
  */
 //                   精选页面
 //                 作者:赵子文
-    //实体类的修改  zzy
+//实体类的修改  zzy
 
 public class ChoiceFragment extends BaseFragment {
 
@@ -70,7 +72,7 @@ public class ChoiceFragment extends BaseFragment {
 
         adapter = new ChoiceAdapter(mContext);
         getPostRequestContent();
-        choiceRv.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false));
+        choiceRv.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         choiceRv.setAdapter(adapter);
 
     }
@@ -81,6 +83,8 @@ public class ChoiceFragment extends BaseFragment {
         String postUrl = "http://api.rr.tv/v3plus/index/collection";
         String key = "clientVersion";
         String value = "3.5.2";
+        final ArrayList<Integer> videoId = new ArrayList<>();
+
         Map<String, String> postMaps = new HashMap<>();
         postMaps.put(key, value);
         VolleyManager.getInstance().startStringRequestNet(Request.Method.POST, postUrl, postMaps, null, new OnNetResultListener() {
@@ -89,6 +93,16 @@ public class ChoiceFragment extends BaseFragment {
                 Gson gson = new Gson();
                 FeaturedBean featuredBean = gson.fromJson(resultStr, FeaturedBean.class);
                 adapter.setFeaturedBean(featuredBean);
+                for (int i = 0; i < featuredBean.getData().getTodayRecommend().size(); i++) {
+                    videoId.add(featuredBean.getData().getTodayRecommend().get(i).getId());
+
+                }
+                ContentFragment fragment = new ContentFragment();
+                Bundle bundle = new Bundle();
+                bundle.putIntegerArrayList("videoId", videoId);
+                fragment.setArguments(bundle);
+
+
 ////                up主推荐
 //                upBeanList = featuredBean.getData().getRecommendUp();
 ////                轮播图
@@ -109,7 +123,7 @@ public class ChoiceFragment extends BaseFragment {
 
             @Override
             public void onFailure(String errMsg) {
-                LogTool.logI("精选界面","网络异常");
+                LogTool.logI("精选界面", "网络异常");
                 ToastTool.showDebugToast(getContext(), "网络异常");
             }
         });

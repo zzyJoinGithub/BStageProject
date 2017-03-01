@@ -114,8 +114,8 @@
             android:background="@mipmap/ic_like_" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/fragment_choiceSecondTodayRecommendRl"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_choiceSecondTodayRecommendRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

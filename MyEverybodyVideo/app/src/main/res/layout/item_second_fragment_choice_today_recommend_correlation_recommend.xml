@@ -15,7 +15,7 @@
         android:textSize="@dimen/text_size_twenty" />
 
     <ListView
-        android:id="@+id/fragment_choiceTodayRecommendSecondCorrelationRecommend"
+        android:id="@+id/fragment_choiceTodayRecommendSecondCorrelationRecommendLv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

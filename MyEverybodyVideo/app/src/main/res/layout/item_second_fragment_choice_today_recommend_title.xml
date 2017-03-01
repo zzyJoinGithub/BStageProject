@@ -36,8 +36,8 @@
         android:text="@string/test"
         android:textSize="@dimen/text_size_fifteen" />
 
-    <RelativeLayout
-        android:id="@+id/fragment_choiceTodayRecommendSecondTagRl"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_choiceTodayRecommendSecondTagRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/layout_margin_top_ten"
