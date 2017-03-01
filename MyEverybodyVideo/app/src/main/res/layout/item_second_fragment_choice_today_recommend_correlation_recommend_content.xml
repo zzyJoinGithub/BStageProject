@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin_start_five">
+
+        <ImageView
+            android:id="@+id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
+            android:layout_width="@dimen/layout_width_one_hundred_and_fifty"
+            android:layout_height="@dimen/layout_height_one_hundred"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
+            android:layout_alignRight="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_five"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:background="@drawable/time_shape"
+            android:text="@string/test"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_five"
+            android:layout_toRightOf="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
+            android:text="@string/test"
+            android:textSize="@dimen/text_size_fifteen"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoNumberOfPeopleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoTitleTv"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_thirty"
+            android:layout_toRightOf="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
+            android:text="@string/test" />
+    </RelativeLayout>
+
+</LinearLayout>

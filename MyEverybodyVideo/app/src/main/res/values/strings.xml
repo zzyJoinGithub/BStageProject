@@ -10,5 +10,9 @@
     <string name="alreadyLoaded">已经加载完毕</string>
     <string name="todayRecommend">今日推荐</string>
     <string name="billboard">排行榜</string>
+    <string name="share">分享</string>
+    <string name="cache">缓存</string>
+    <string name="like">喜欢</string>
     <string name="more">更多</string>
+    <string name="correlationRecommend">相关推荐</string>
 </resources>

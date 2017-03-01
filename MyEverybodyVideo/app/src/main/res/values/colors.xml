@@ -8,5 +8,6 @@
     <color name="colorLightGrey">#DEDEDE</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorNearWhite">#FAFAFA</color>
+    <color name="colorBlack">#000000</color>
 
 </resources>

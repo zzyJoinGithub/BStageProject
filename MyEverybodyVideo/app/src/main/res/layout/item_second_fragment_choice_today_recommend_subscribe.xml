@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fragment_choiceTodayRecommendSecondSubscribeCircleIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_fifteen"
+            android:layout_marginStart="@dimen/layout_margin_start_five"
+            android:layout_marginTop="@dimen/layout_margin_top_fifteen"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/fragment_choiceTodayRecommendSecondSubscribeTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_fifteen"
+            android:layout_toRightOf="@id/fragment_choiceTodayRecommendSecondSubscribeCircleIv"
+            android:text="@string/test"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_twenty" />
+
+        <TextView
+            android:id="@+id/fragment_choiceTodayRecommendSecondSubscribeNumberOfPeopleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_choiceTodayRecommendSecondSubscribeTitleTv"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_five"
+            android:layout_toRightOf="@id/fragment_choiceTodayRecommendSecondSubscribeCircleIv"
+            android:text="@string/test"
+            android:textSize="@dimen/text_size_fifteen" />
+
+        <ImageView
+            android:id="@+id/fragment_choiceTodayRecommendSecondSubscribeIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_five"
+            android:background="@mipmap/ic_home_take_dingyue" />
+
+    </RelativeLayout>
+
+</LinearLayout>
