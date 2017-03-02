@@ -59,46 +59,6 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
         return this;
     }
 
-    //    //    up主推荐集合
-//    private List<DataBean.RecommendUpBean> upBeanList;
-//    //    轮播图集合
-//    private List<BannerBean> bannerBeanList;
-//    //    奥斯卡集合
-//    private List<DataBean.OfficalAlbumBean> resultListBeanList;
-//    //    今日推荐集合
-//    private List<BriefBean> todayRecommendBeanList;
-//    //    分类集合
-//    private List<DataBean.CategoryBean> categoryListBeanList;
-
-//    public ChoiceAdapter setUpBeanList(List<DataBean.RecommendUpBean> upBeanList) {
-//        this.upBeanList = upBeanList;
-//        notifyDataSetChanged();
-//        return this;
-//    }
-//
-//    public ChoiceAdapter setBannerBeanList(List<BannerBean> bannerBeanList) {
-//        this.bannerBeanList = bannerBeanList;
-//        notifyDataSetChanged();
-//        return this;
-//    }
-//
-//    public ChoiceAdapter setResultListBeanList(List<DataBean.OfficalAlbumBean> resultListBeanList) {
-//        this.resultListBeanList = resultListBeanList;
-//        notifyDataSetChanged();
-//        return this;
-//    }
-//
-//    public ChoiceAdapter setTodayRecommendBeanList(List<BriefBean> todayRecommendBeanList) {
-//        this.todayRecommendBeanList = todayRecommendBeanList;
-//        notifyDataSetChanged();
-//        return this;
-//    }
-//
-//    public ChoiceAdapter setCategoryListBeanList(List<DataBean.CategoryBean> categoryListBeanList) {
-//        this.categoryListBeanList = categoryListBeanList;
-//        notifyDataSetChanged();
-//        return this;
-//    }
 
     @Override
     public int getItemViewType(int position) {
@@ -184,8 +144,9 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Bundle bundle = new Bundle();
-                        bundle.putInt("TODAYRECOMMEND",featuredBean.getData().getTodayRecommend().get(position).getId());
+                        bundle.putInt("id",featuredBean.getData().getTodayRecommend().get(position).getId());
                         onRecyclerViewClickListener.onRecyclerViewClickListener(position,bundle);
+
                     }
                 });
                 break;

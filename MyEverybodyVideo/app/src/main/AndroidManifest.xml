@@ -34,6 +34,7 @@
 
         </activity>
         <activity android:name=".login.LoginActivity" />
+        <activity android:name=".homepage.choice.second_choice_today_recommend.ContentActivity"/>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"

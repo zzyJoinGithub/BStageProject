@@ -11,9 +11,10 @@
 
         <ImageView
             android:id="@+id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
-            android:layout_width="@dimen/layout_width_one_hundred_and_fifty"
-            android:layout_height="@dimen/layout_height_one_hundred"
-            android:background="@color/colorAccent" />
+            android:layout_width="@dimen/layout_width_one_hundred_and_thirty"
+            android:layout_height="@dimen/layout_height_seventy"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_ten"/>
 
         <TextView
             android:id="@+id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoTimesTv"
@@ -22,9 +23,10 @@
             android:layout_alignBottom="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
             android:layout_alignRight="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
             android:layout_marginBottom="@dimen/layout_margin_bottom_five"
-            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:layout_marginEnd="@dimen/layout_margin_end_five"
             android:background="@drawable/time_shape"
             android:text="@string/test"
+            android:textSize="@dimen/text_size_ten"
             android:textColor="@color/colorWhite" />
 
         <TextView
@@ -33,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/layout_margin_end_ten"
             android:layout_marginStart="@dimen/layout_margin_start_ten"
-            android:layout_marginTop="@dimen/layout_margin_top_five"
+            android:layout_marginTop="@dimen/layout_margin_top_fifteen"
             android:layout_toRightOf="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
             android:text="@string/test"
             android:textSize="@dimen/text_size_fifteen"
@@ -45,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoTitleTv"
             android:layout_marginStart="@dimen/layout_margin_start_ten"
-            android:layout_marginTop="@dimen/layout_margin_top_thirty"
+            android:layout_marginTop="@dimen/layout_margin_top_fifteen"
             android:layout_toRightOf="@id/fragment_choiceSecondTodayRecommendCorrelationRecommendVideoIv"
             android:text="@string/test" />
     </RelativeLayout>

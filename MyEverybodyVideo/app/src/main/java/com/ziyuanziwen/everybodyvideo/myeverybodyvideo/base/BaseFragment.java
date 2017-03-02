@@ -158,6 +158,20 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
+     * 跳转传String
+     *
+     * @param to         要跳转到的Activity
+     * @param key        跳转传值的key值
+     * @param extraValue 跳转传int类型的值
+     */
+    protected void goTo(Class<? extends BaseActivity> to, String key, int extraValue) {
+        Intent intent = new Intent(mContext, to);
+        intent.putExtra(key, extraValue);
+        mContext.startActivity(intent);
+    }
+
+
+    /**
      * 传不确定个数和类型的对象
      *
      * @param to     要跳转到的Activity

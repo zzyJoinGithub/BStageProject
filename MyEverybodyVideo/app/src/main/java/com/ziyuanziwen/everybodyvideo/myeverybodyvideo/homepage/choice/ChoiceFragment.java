@@ -1,5 +1,6 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,18 +14,14 @@ import com.google.gson.Gson;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseFragment;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.customize.OnRecyclerViewClickListener;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BannerBean;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BriefBean;
-import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.DataBean;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.FeaturedBean;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.second_choice_today_recommend.ContentActivity;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.OnNetResultListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.VolleyManager;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.LogTool;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.ToastTool;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,16 +35,6 @@ public class ChoiceFragment extends BaseFragment {
 
     private RecyclerView choiceRv;
     private ChoiceAdapter adapter;
-    //    up主推荐集合
-    private List<DataBean.RecommendUpBean> upBeanList;
-    //    轮播图集合
-    private List<BannerBean> bannerBeanList;
-    //    奥斯卡集合
-    private List<DataBean.OfficalAlbumBean> resultListBeanList;
-    //    今日推荐集合
-    private List<BriefBean> todayRecommendBeanList;
-    //    分类集合
-    private List<DataBean.CategoryBean> categoryListBeanList;
 
     //    绑定布局
     @Override
@@ -69,7 +56,6 @@ public class ChoiceFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
         adapter = new ChoiceAdapter(mContext);
         getPostRequestContent();
         choiceRv.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
@@ -83,7 +69,6 @@ public class ChoiceFragment extends BaseFragment {
         final String postUrl = "http://api.rr.tv/v3plus/index/collection";
         String key = "clientVersion";
         String value = "3.5.2";
-        final ArrayList<Integer> videoId = new ArrayList<>();
 
         Map<String, String> postMaps = new HashMap<>();
         postMaps.put(key, value);
@@ -93,38 +78,16 @@ public class ChoiceFragment extends BaseFragment {
                 Gson gson = new Gson();
                 FeaturedBean featuredBean = gson.fromJson(resultStr, FeaturedBean.class);
                 adapter.setFeaturedBean(featuredBean);
-                for (int i = 0; i < featuredBean.getData().getTodayRecommend().size(); i++) {
-                    videoId.add(featuredBean.getData().getTodayRecommend().get(i).getId());
-
-                }
-
 
                 //给recycler设置点击事件
                 adapter.setOnRecyclerViewClickListener(new OnRecyclerViewClickListener() {
                     @Override
                     public void onRecyclerViewClickListener(int position, Bundle bundle) {
-                        int id = bundle.getInt("TODAYRECOMMEND");
-                        LogTool.logI("ChoiceFragment","id:" + id + position);
+                        goTo(ContentActivity.class, bundle);
+                        Log.d("ChoiceFragment", "bundle.size():" + bundle.size());
                     }
                 });
 
-
-////                up主推荐
-//                upBeanList = featuredBean.getData().getRecommendUp();
-////                轮播图
-//                bannerBeanList = featuredBean.getData().getBannerTop();
-////                奥斯卡
-//                resultListBeanList = featuredBean.getData().getOfficalAlbum();
-////                今日推荐
-//                todayRecommendBeanList = featuredBean.getData().getTodayRecommend();
-////                分类
-//                categoryListBeanList = featuredBean.getData().getCategoryList();
-
-//                adapter.setBannerBeanList(bannerBeanList);
-//                adapter.setCategoryListBeanList(categoryListBeanList);
-//                adapter.setResultListBeanList(resultListBeanList);
-//                adapter.setTodayRecommendBeanList(todayRecommendBeanList);
-//                adapter.setUpBeanList(upBeanList);
             }
 
             @Override
