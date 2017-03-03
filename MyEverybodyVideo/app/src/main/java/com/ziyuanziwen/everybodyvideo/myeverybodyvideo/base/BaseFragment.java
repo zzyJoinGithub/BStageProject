@@ -181,5 +181,6 @@ public abstract class BaseFragment extends Fragment {
         Intent intent = new Intent(mContext, to);
         intent.putExtras(bundle);
         mContext.startActivity(intent);
+
     }
 }

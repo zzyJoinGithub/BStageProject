@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
+
 /**
 <<<<<<< HEAD
  * Created by dllo on 17/2/20.
@@ -74,7 +76,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(this, to);
         startActivity(intent);
-//        overridePendingTransition(R.anim.in, R.anim.out);
+        overridePendingTransition(R.anim.enter_into, R.anim.enter_exit);
     }
 
     //    跳转传String
@@ -82,6 +84,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, to);
         intent.putExtra(key, extraValue);
         startActivity(intent);
+        overridePendingTransition(R.anim.enter_into, R.anim.enter_exit);
+
     }
 
     //    传集合
@@ -89,5 +93,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, to);
         intent.putExtras(bundle);
         startActivity(intent);
+        overridePendingTransition(R.anim.enter_into, R.anim.enter_exit);
+
     }
 }

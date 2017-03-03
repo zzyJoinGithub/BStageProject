@@ -76,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/layout_margin_bottom_ten"
             android:layout_marginTop="@dimen/layout_margin_top_ten"
-            android:background="@drawable/login_shape"
             android:gravity="center"
             android:text="登录"
             android:textColor="@color/colorWhite"

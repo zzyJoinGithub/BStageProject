@@ -14,6 +14,7 @@
     <dimen name="layout_height_sixty">60dp</dimen>
     <dimen name="layout_height_one_hundred_and_fifty">150dp</dimen>
     <dimen name="layout_height_one_hundred_and_seventy">170dp</dimen>
+    <dimen name="layout_height_two_hundred">200dp</dimen>
     <dimen name="layout_height_thirty">30dp</dimen>
     <dimen name="layout_height_ten">10dp</dimen>
     <dimen name="layout_height_twenty">20dp</dimen>
