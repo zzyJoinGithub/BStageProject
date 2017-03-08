@@ -18,5 +18,5 @@
         android:src="@mipmap/logo"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/layout_margin_bottom_ten"/>
+        android:layout_marginBottom="@dimen/layout_margin_bottom_forty"/>
 </RelativeLayout>

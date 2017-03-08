@@ -1,5 +1,6 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -181,6 +182,6 @@ public abstract class BaseFragment extends Fragment {
         Intent intent = new Intent(mContext, to);
         intent.putExtras(bundle);
         mContext.startActivity(intent);
-
+        ((Activity)mContext).overridePendingTransition(R.anim.enter_into, R.anim.enter_exit);
     }
 }

@@ -1,6 +1,7 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.subscribe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.db.SQTool;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.login.LoginActivity;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.mine.MineEntity;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.ImageManagersFactory;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.ToastTool;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,6 +37,9 @@ public class SubscribeAdapter extends BaseAdapter {
     //    定义实体类集合,承接对象
     private List<SubscribeEntity.DataBean.UperListBean> subscribeEntityList;
     private Context context;
+    private boolean isLogin = false;
+    private Map<Integer, Boolean> isClicked;
+
 
     //     构造方法
     public SubscribeAdapter(Context context) {
@@ -39,6 +49,10 @@ public class SubscribeAdapter extends BaseAdapter {
     //    set方法将集合传入适配器中
     public void setSubscribeEntityList(List<SubscribeEntity.DataBean.UperListBean> subscribeEntityList) {
         this.subscribeEntityList = subscribeEntityList;
+        isClicked = new HashMap<>();
+        for (int i = 0; i < subscribeEntityList.size(); i++) {
+            isClicked.put(i, false);
+        }
         notifyDataSetChanged();
     }
 
@@ -63,7 +77,7 @@ public class SubscribeAdapter extends BaseAdapter {
 
     //    获取视图
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
 //        复用机制为空
         ViewHolder viewHolder = null;
         if (null == view) {
@@ -79,10 +93,34 @@ public class SubscribeAdapter extends BaseAdapter {
 //      给组件设置内容
         Log.d("SubscribeAdapter", "subscribeEntityList.size():" + subscribeEntityList.size());
         viewHolder.titleTv.setText(subscribeEntityList.get(i).getName());
+        final ViewHolder finalViewHolder = viewHolder;
         viewHolder.subscribeIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MineEntity entity = new MineEntity();
+                if (isLogin) {
+                    if (isClicked.get(i)) {
+                        isClicked.put(i, false);
+                        finalViewHolder.subscribeIv.setImageResource(R.mipmap.ic_home_take_dingyue);
 
+//                        entity.setTitle(subscribeEntityList.get(i).getName());
+                        SQTool.getInstance().deleteData(subscribeEntityList.get(i).getName());
+                        notifyDataSetChanged();
+                    } else {
+                        isClicked.put(i, true);
+                        finalViewHolder.subscribeIv.setImageResource(R.mipmap.ic_home_take_yidingyue);
+                        entity.setTitle(subscribeEntityList.get(i).getName());
+                        entity.setImage(subscribeEntityList.get(i).getHeadImg());
+                        SQTool.getInstance().addData(entity);
+                        notifyDataSetChanged();
+                    }
+
+                } else {
+                    Intent intent = new Intent(context, LoginActivity.class);
+                    context.startActivity(intent);
+                    isLogin = true;
+                    ToastTool.showDebugToast(context, "请先登录");
+                }
             }
         });
 //        先获取内容,进行判断
