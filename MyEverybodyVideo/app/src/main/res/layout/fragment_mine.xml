@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_login_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/fragment_mineSelectAllTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/layout_margin_end_ten"
+            android:text="@string/selectAll"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/layout_margin_start_ten"
+            android:layout_marginTop="@dimen/layout_margin_top_ten"
+            android:text="@string/mineSubscribe"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_twenty"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/fragment_mineLv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height_zero"
+        android:layout_marginEnd="@dimen/layout_margin_end_ten"
+        android:layout_marginStart="@dimen/layout_margin_start_ten"
+        android:layout_marginTop="@dimen/layout_height_ten"
+        android:layout_weight="1"
+        android:dividerHeight="@dimen/layout_height_ten" />
+</LinearLayout>

@@ -1,7 +1,6 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -73,6 +72,7 @@ public class HomePageFragment extends BaseFragment {
 //        设置导航线不显示
         tabLayoutTitle.setSelectedTabIndicatorColor(Color.alpha(0));
         tabLayoutTitle.setupWithViewPager(homepageVp);
+        homepageVp.setCurrentItem(1);
 
 
     }

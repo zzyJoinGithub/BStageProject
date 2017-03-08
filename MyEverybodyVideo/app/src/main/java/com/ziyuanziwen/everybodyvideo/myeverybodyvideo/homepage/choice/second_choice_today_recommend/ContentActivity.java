@@ -1,11 +1,12 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.second_choice_today_recommend;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -52,6 +53,8 @@ public class ContentActivity extends BaseActivity implements MediaPlayer.OnBuffe
     private ContentAdapter adapter;
     private boolean isLike = false;
     private boolean isLogin = false;
+    private int currentPos = 0;
+    private String lastId;
     //所有视频获取的接口
     private String videoPath = "http://api.rr.tv/video/findM3u8ByVideoId";
     private ContentEntity contentEntity;
@@ -78,6 +81,27 @@ public class ContentActivity extends BaseActivity implements MediaPlayer.OnBuffe
         cacheIv.setOnClickListener(this);
         likeIv.setOnClickListener(this);
 
+    }
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        if (savedInstanceState != null) {
+            Log.d("ContentActivity", "不为空");
+            int pos = savedInstanceState.getInt("pos", 0);
+            currentPos = pos;
+            lastId = savedInstanceState.getString("id");
+        }
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        int currentPosition = (int) mVideoView.getCurrentPosition();
+        outState.putInt("pos",currentPosition);
+        Log.d("PlayActivity", "saveInstance");
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -149,7 +173,7 @@ public class ContentActivity extends BaseActivity implements MediaPlayer.OnBuffe
 
                     @Override
                     public void onFailure(String errMsg) {
-                        LogTool.logI("contentAty","获取播放路径失败");
+                        LogTool.logI("contentAty", "获取播放路径失败");
                     }
                 });
 
@@ -196,31 +220,31 @@ public class ContentActivity extends BaseActivity implements MediaPlayer.OnBuffe
 
     }
 
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        //屏幕切换时，设置全屏
-        if (mVideoView != null) {
-            mVideoView.setVideoLayout(VideoView.VIDEO_LAYOUT_SCALE, 0);
-        }
-        super.onConfigurationChanged(newConfig);
-    }
+//
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        //屏幕切换时，设置全屏
+//        if (mVideoView != null) {
+//            mVideoView.setVideoLayout(VideoView.VIDEO_LAYOUT_SCALE, 0);
+//        }
+//        super.onConfigurationChanged(newConfig);
+//    }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.fragment_choiceSecondTodayRecommendLikeIv:
-                if (isLogin == true){
-                    if (isLike == true){
+                if (isLogin == true) {
+                    if (isLike == true) {
                         likeIv.setImageResource(R.mipmap.ic_like_h);
                         LogTool.logI("Adapter", "红色");
                         isLike = false;
-                    }else{
+                    } else {
                         likeIv.setImageResource(R.mipmap.ic_like_);
                         LogTool.logI("Adapter", "无色");
                         isLike = true;
                     }
-                }else {
+                } else {
                     LogTool.logI("Adapter", "跳转,boolean类型值都变为true");
                     goTo(LoginActivity.class);
                     isLike = true;

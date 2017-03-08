@@ -10,8 +10,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fragment_choiceTodayRecommendSecondSubscribeCircleIv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/layout_width_fifty"
+            android:layout_height="@dimen/layout_height_fifty"
             android:layout_marginBottom="@dimen/layout_margin_bottom_fifteen"
             android:layout_marginStart="@dimen/layout_margin_start_five"
             android:layout_marginTop="@dimen/layout_margin_top_fifteen"

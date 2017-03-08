@@ -14,5 +14,8 @@
     <string name="cache">缓存</string>
     <string name="like">喜欢</string>
     <string name="more">更多</string>
+    <string name="mineSubscribe">我的收藏</string>
     <string name="correlationRecommend">相关推荐</string>
+    <string name="selectAll">全选</string>
+
 </resources>

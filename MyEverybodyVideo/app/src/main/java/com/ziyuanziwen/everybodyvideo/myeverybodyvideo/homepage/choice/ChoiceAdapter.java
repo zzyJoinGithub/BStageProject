@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerClickListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.customize.OnRecyclerViewClickListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.choice.bean.BannerBean;
@@ -134,6 +135,12 @@ public class ChoiceAdapter extends RecyclerView.Adapter {
                 bannerViewHolder.banner.isAutoPlay(true);
                 bannerViewHolder.banner.setDelayTime(2000);
                 bannerViewHolder.banner.start();
+                bannerViewHolder.banner.setOnBannerClickListener(new OnBannerClickListener() {
+                    @Override
+                    public void OnBannerClick(int position) {
+
+                    }
+                });
                 break;
             case TODAYRECOMMEND:
                 TodayRecommendViewHolder todayRecommendViewHolder = (TodayRecommendViewHolder) holder;
