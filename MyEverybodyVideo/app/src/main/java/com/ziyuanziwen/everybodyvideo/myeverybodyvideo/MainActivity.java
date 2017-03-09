@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.RadioButton;
 
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseActivity;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.channel.ChannelFragment;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.find.FindFragment;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.HomePageFragment;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.mine.MineFragment;
 
@@ -19,6 +21,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton btnMine;
     private HomePageFragment homePageFragment;
     private MineFragment mineFragment;
+    private ChannelFragment channelFragment;
+    private FindFragment findFragment;
 
     /**
      * 接受Intent对象的生命周期
@@ -50,7 +54,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         homePageFragment = new HomePageFragment();
         mineFragment = new MineFragment();
 
-
+        channelFragment = ChannelFragment.newInstance();
+        findFragment = FindFragment.newInstance();
     }
 
 
@@ -72,8 +77,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 transaction.replace(R.id.mainAty_frameLayout, homePageFragment);
                 break;
             case R.id.mainAty_rbtChannel:
+                transaction.replace(R.id.mainAty_frameLayout, channelFragment);
                 break;
             case R.id.mainAty_rbtFind:
+                transaction.replace(R.id.mainAty_frameLayout, findFragment);
                 break;
             case R.id.mainAty_rbtMine:
                 transaction.replace(R.id.mainAty_frameLayout, mineFragment);
