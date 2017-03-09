@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseApplication;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.mine.MineEntity;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.LogTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,11 +68,14 @@ public class SQTool {
         values.put(SQValues.PICTURE_COLUMN, mineEntity.getImage());
         values.put(SQValues.TITLE_COLUMN, mineEntity.getTitle());
         database.insert(SQValues.TABLE_NAME, null, values);
+        LogTool.logI("SQTool", mineEntity.getImage() + "\n" + mineEntity.getTitle());
     }
 
     //    删
     public void deleteData(String title) {
         database.delete(SQValues.TABLE_NAME, SQValues.TITLE_COLUMN + " = ?", new String[]{title});
+        LogTool.logI("SQTool", title);
+
     }
 
     //    查
@@ -80,8 +84,8 @@ public class SQTool {
         Cursor cursor = database.query(SQValues.TABLE_NAME, null, null, null, null, null, null);
         if (null != cursor) {
             while (cursor.moveToNext()) {
-                String titles = cursor.getColumnName(cursor.getColumnIndex(SQValues.TITLE_COLUMN));
-                String image = cursor.getColumnName(cursor.getColumnIndex(SQValues.PICTURE_COLUMN));
+                String titles = cursor.getString(cursor.getColumnIndex(SQValues.TITLE_COLUMN));
+                String image = cursor.getString(cursor.getColumnIndex(SQValues.PICTURE_COLUMN));
                 MineEntity bean = new MineEntity();
                 bean.setTitle(titles);
                 bean.setImage(image);

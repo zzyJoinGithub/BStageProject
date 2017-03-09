@@ -1,6 +1,7 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.mine;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -16,10 +17,13 @@ import java.util.List;
  * Created by dllo on 17/3/7.
  */
 
-public class MineFragment extends BaseFragment {
+public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     private ListView listView;
     private MineAdapter adapter;
+    private Button editBtn;
+    private Button deleteBtn;
+    private List<MineEntity> data;
 
     @Override
     protected int getLayout() {
@@ -33,7 +37,11 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        listView = (ListView) view.findViewById(R.id.fragment_mineLv);
+        listView = byView(view, R.id.fragment_mineLv);
+        editBtn = byView(view, R.id.fragment_mineEditBtn);
+        deleteBtn = byView(view, R.id.fragment_mineDeleteBtn);
+        editBtn.setOnClickListener(this);
+        deleteBtn.setOnClickListener(this);
     }
 
     @Override
@@ -41,8 +49,29 @@ public class MineFragment extends BaseFragment {
 
         adapter = new MineAdapter(getContext());
 //       没有添加数据
-        List<MineEntity> data = SQTool.getInstance().queryAllData();
+        data = SQTool.getInstance().queryAllData();
         adapter.setDatas(data);
         listView.setAdapter(adapter);
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.fragment_mineEditBtn:
+                if (adapter.isFlage()) {
+                    editBtn.setText("编辑");
+                    adapter.setFlage(false);
+                } else {
+                    editBtn.setText("取消");
+                    adapter.setFlage(true);
+                }
+                adapter.notifyDataSetChanged();
+                break;
+            case R.id.fragment_mineDeleteBtn:
+               adapter.deleteData();
+
+                break;
+        }
     }
 }

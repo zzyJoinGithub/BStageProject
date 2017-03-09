@@ -8,10 +8,12 @@ public class MineEntity {
 
     private String title;
     private String image;
+    private boolean isClicked;
 
 
-    public MineEntity(String title, String image) {
+    public MineEntity(String title, boolean isClicked, String image) {
         this.title = title;
+        this.isClicked = isClicked;
         this.image = image;
     }
 
@@ -32,5 +34,13 @@ public class MineEntity {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public boolean isClicked() {
+        return isClicked;
+    }
+
+    public void setClicked(boolean clicked) {
+        isClicked = clicked;
     }
 }

@@ -7,17 +7,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants">
 
-
-        <TextView
-            android:id="@+id/fragment_mineSelectAllTv"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/fragment_mineEditBtn"
+            android:layout_width="@dimen/layout_width_fifty"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/layout_margin_end_ten"
-            android:text="@string/selectAll"
+            android:background="@null"
+            android:text="@string/edit"
+            android:textColor="@color/colorAccent" />
+
+
+        <Button
+            android:id="@+id/fragment_mineDeleteBtn"
+            android:layout_width="@dimen/layout_width_fifty"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/fragment_mineEditBtn"
+            android:background="@null"
+            android:text="@string/delete"
             android:textColor="@color/colorAccent" />
 
         <TextView
