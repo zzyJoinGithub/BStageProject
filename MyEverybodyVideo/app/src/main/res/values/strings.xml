@@ -16,12 +16,11 @@
     <string name="more">更多</string>
     <string name="mineSubscribe">我的收藏</string>
     <string name="correlationRecommend">相关推荐</string>
-<<<<<<< HEAD
+
     <string name="selectAll">全选</string>
-    
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-=======
+
     <string name="edit">编辑</string>
     <string name="delete">删除</string>
     <string name="useThirdPartyLogin">使用第三方登录</string>
@@ -29,5 +28,4 @@
     <string name="newUserLogon">新用户注册</string>
     <string name="loginPassword">登录密码</string>
 
->>>>>>> feature/修改数据库
 </resources>
