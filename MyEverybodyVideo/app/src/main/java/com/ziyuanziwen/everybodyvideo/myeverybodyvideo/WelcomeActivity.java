@@ -41,9 +41,4 @@ public class WelcomeActivity extends BaseActivity {
         timer.cancel();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        timer.start();
-    }
 }

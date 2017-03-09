@@ -41,8 +41,8 @@
 
         <ImageView
             android:id="@+id/fragment_subscribeItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/layout_width_eighty"
+            android:layout_height="@dimen/layout_height_thirty"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/layout_margin_end_twenty"

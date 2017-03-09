@@ -2,7 +2,6 @@ package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.subscribe;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,7 @@ import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.db.SQTool;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.login.LoginActivity;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.mine.MineEntity;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.ImageManagersFactory;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.LogTool;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.ToastTool;
 
 import java.util.HashMap;
@@ -91,7 +91,7 @@ public class SubscribeAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 //      给组件设置内容
-        Log.d("SubscribeAdapter", "subscribeEntityList.size():" + subscribeEntityList.size());
+//        Log.d("SubscribeAdapter", "subscribeEntityList.size():" + subscribeEntityList.size());
         viewHolder.titleTv.setText(subscribeEntityList.get(i).getName());
         final ViewHolder finalViewHolder = viewHolder;
         viewHolder.subscribeIv.setOnClickListener(new View.OnClickListener() {
@@ -102,17 +102,21 @@ public class SubscribeAdapter extends BaseAdapter {
                     if (isClicked.get(i)) {
                         isClicked.put(i, false);
                         finalViewHolder.subscribeIv.setImageResource(R.mipmap.ic_home_take_dingyue);
-
 //                        entity.setTitle(subscribeEntityList.get(i).getName());
                         SQTool.getInstance().deleteData(subscribeEntityList.get(i).getName());
+
                         notifyDataSetChanged();
+                        LogTool.logI("SubscribeAdapter", subscribeEntityList.get(i).getName());
+
                     } else {
                         isClicked.put(i, true);
                         finalViewHolder.subscribeIv.setImageResource(R.mipmap.ic_home_take_yidingyue);
                         entity.setTitle(subscribeEntityList.get(i).getName());
                         entity.setImage(subscribeEntityList.get(i).getHeadImg());
+                        entity.setClicked(true);
                         SQTool.getInstance().addData(entity);
                         notifyDataSetChanged();
+                        LogTool.logI("SubscribeAdapter", entity.getTitle());
                     }
 
                 } else {

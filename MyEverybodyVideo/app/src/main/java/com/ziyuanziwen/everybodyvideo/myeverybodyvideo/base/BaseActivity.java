@@ -76,6 +76,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(this, to);
         startActivity(intent);
+        finish();
         overridePendingTransition(R.anim.enter_into, R.anim.enter_exit);
     }
 
