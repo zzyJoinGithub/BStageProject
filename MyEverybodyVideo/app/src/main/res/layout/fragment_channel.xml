@@ -1,22 +1,28 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ziyuanziwen.everybodyvideo.myeverybodyvideo.channel.ChannelFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.amap.api.maps.MapView
+        android:id="@+id/channelFrag_mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/channelFrag_showAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="地址信息显示栏" />
+        android:text="点击显示地址信息显示"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/channelFrag_stopGetAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="停止获取"
         android:textSize="40sp"
-        android:text="停止获取" />
+        android:visibility="gone" />
 
-</LinearLayout>
+
+</RelativeLayout>
