@@ -4,6 +4,7 @@ package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.channel;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.MapView;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseApplication;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseFragment;
@@ -41,6 +44,7 @@ public class ChannelFragment extends BaseFragment implements View.OnClickListene
     private AMapLocationClientOption mLocationOption;
     private TextView showAddressTv;
     private Handler handler;
+    private MapView mMapView;
 
     public static ChannelFragment newInstance() {
 
@@ -59,19 +63,31 @@ public class ChannelFragment extends BaseFragment implements View.OnClickListene
     @Override
     protected void initTitle(RelativeLayout titleLayout, ImageView backIv, TextView titleTv, ImageView rightIv) {
         titleTv.setText("地图界面");
+        backIv.setVisibility(View.GONE);
+        rightIv.setVisibility(View.GONE);
     }
 
     @Override
     protected void initView(View view) {
         showAddressTv = byView(view, R.id.channelFrag_showAddress);
-        //初始化定位
-        mLocationClient = new AMapLocationClient(BaseApplication.getContext());
-        //初始化AMapLocationClientOption对象
-        mLocationOption = new AMapLocationClientOption();
+        //获取地图控件引用
+        mMapView = byView(view,R.id.channelFrag_mapView);
+
     }
 
     @Override
     protected void initData() {
+        //初始化定位
+        mLocationClient = new AMapLocationClient(BaseApplication.getContext());
+        //初始化AMapLocationClientOption对象
+        mLocationOption = new AMapLocationClientOption();
+        //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
+        mMapView.onCreate(null);
+        //初始化地图控制器对象
+        AMap aMap = null;
+        if (aMap == null) {
+            aMap = mMapView.getMap();
+        }
         showAddressTv.setOnClickListener(this);
         handler = new Handler(new Handler.Callback() {
             @Override
@@ -83,6 +99,55 @@ public class ChannelFragment extends BaseFragment implements View.OnClickListene
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.channelFrag_showAddress:
+                startGetArddess();
+                break;
+            case R.id.channelFrag_stopGetAddress:
+                mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
+                break;
+        }
+    }
+
+    /*
+        Activity的方法onSaveInstanceState(Bundle outState)，按照文档里说的，这个方法是在内存不够时，系统要强制杀掉这个Activity时，进行调用的。
+    但经过我的测试，发现这个方法并不是在系统内存不够时，要杀掉Activity时，才调用的。
+    测试结果：
+    1. 只要Activity不finish，Activity进入后台（比如Home键，跳转到其他的Activity），则其就会调用onSaveInstanceState(Bundle outState)方法，而且这个方法是在onPause方法之间进行调用的。
+    2. 如果Activity是执行了finish方法，才进入的后台，则不调用这个onSaveInstanceState(Bundle outState)，而且下次再进入时，也不会使用这个保存的数据。
+    3. 在系统杀掉Activity所在的进程时，onSaveInstanceState(Bundle outState)方法根本就没有调用过。
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
+        mMapView.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        //在activity执行onPause时执行mMapView.onPause ()，暂停地图的绘制
+        mMapView.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //在activity执行onResume时执行mMapView.onResume ()，重新绘制加载地图
+        mMapView.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mLocationClient.onDestroy();//销毁定位客户端，同时销毁本地定位服务。
+        //在activity执行onDestroy时执行mMapView.onDestroy()，销毁地图
+        mMapView.onDestroy();
     }
 
     private void startGetArddess() {
@@ -153,23 +218,5 @@ public class ChannelFragment extends BaseFragment implements View.OnClickListene
         });
         //启动定位
         mLocationClient.startLocation();
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.channelFrag_showAddress:
-                startGetArddess();
-                break;
-            case R.id.channelFrag_stopGetAddress:
-                mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
-                break;
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mLocationClient.onDestroy();//销毁定位客户端，同时销毁本地定位服务。
     }
 }
