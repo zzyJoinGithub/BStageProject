@@ -68,6 +68,7 @@ public class MineAdapter extends AbsBaseAdapter<MineEntity, MineAdapter.MyHolder
 
     @Override
     protected void onBindViewHolder(MineEntity itemContent, final int i, final MyHolder holder) {
+
         holder.titleTv.setText(itemContent.getTitle());
         ImageManagersFactory.getImageManager(ImageManagersFactory.GLIDE).loadImageView(
                 context, itemContent.getImage(), holder.image);

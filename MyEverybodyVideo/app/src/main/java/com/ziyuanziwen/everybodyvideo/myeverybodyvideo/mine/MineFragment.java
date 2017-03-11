@@ -24,6 +24,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private Button editBtn;
     private Button deleteBtn;
     private List<MineEntity> data;
+    private TextView userName;
 
     @Override
     protected int getLayout() {
@@ -40,6 +41,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         listView = byView(view, R.id.fragment_mineLv);
         editBtn = byView(view, R.id.fragment_mineEditBtn);
         deleteBtn = byView(view, R.id.fragment_mineDeleteBtn);
+        userName = byView(view, R.id.fragment_mineUserName);
         editBtn.setOnClickListener(this);
         deleteBtn.setOnClickListener(this);
     }
@@ -48,8 +50,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     protected void initData() {
 
         adapter = new MineAdapter(getContext());
-//       没有添加数据
         data = SQTool.getInstance().queryAllData();
+        for (int i = 0; i < data.size(); i++) {
+            userName.setText(data.get(i).getUserName());
+        }
         adapter.setDatas(data);
         listView.setAdapter(adapter);
     }

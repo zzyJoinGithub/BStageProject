@@ -14,9 +14,11 @@ public class SQValues {
     //    表名
     public static final String TABLE_NAME = "subscribe";
 
-    //    列名(图片 与 订阅名)
+    //    列名(图片 与 订阅名, 登录状态, 用户名)
     public static final String TITLE_COLUMN = "subscribeName";
     public static final String PICTURE_COLUMN = "subscribePicture";
+    public static final String LOGIN_STATE_COLUMN = "subscribeLoginState";
+    public static final String USER_NAME_COLUMN = "subscribeUserName";
 
     //    数据库版本
     public static final int DB_VERSION = 1;

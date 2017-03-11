@@ -2,6 +2,7 @@ package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.homepage.subscribe;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +38,13 @@ public class SubscribeAdapter extends BaseAdapter {
     //    定义实体类集合,承接对象
     private List<SubscribeEntity.DataBean.UperListBean> subscribeEntityList;
     private Context context;
-    private boolean isLogin = false;
+    private boolean isLogin;
     private Map<Integer, Boolean> isClicked;
 
+
+    public void setLogin(boolean login) {
+        isLogin = login;
+    }
 
     //     构造方法
     public SubscribeAdapter(Context context) {
@@ -97,13 +102,16 @@ public class SubscribeAdapter extends BaseAdapter {
         viewHolder.subscribeIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences preferences = context.getSharedPreferences("message", Context.MODE_PRIVATE);
                 MineEntity entity = new MineEntity();
                 if (isLogin) {
+                    LogTool.logI("是否登录", "登录");
                     if (isClicked.get(i)) {
                         isClicked.put(i, false);
                         finalViewHolder.subscribeIv.setImageResource(R.mipmap.ic_home_take_dingyue);
 //                        entity.setTitle(subscribeEntityList.get(i).getName());
                         SQTool.getInstance().deleteData(subscribeEntityList.get(i).getName());
+
 
                         notifyDataSetChanged();
                         LogTool.logI("SubscribeAdapter", subscribeEntityList.get(i).getName());
@@ -113,13 +121,17 @@ public class SubscribeAdapter extends BaseAdapter {
                         finalViewHolder.subscribeIv.setImageResource(R.mipmap.ic_home_take_yidingyue);
                         entity.setTitle(subscribeEntityList.get(i).getName());
                         entity.setImage(subscribeEntityList.get(i).getHeadImg());
-                        entity.setClicked(true);
+                        entity.setLogin(isLogin);
+                        String userName = preferences.getString("name", "请登录");
+                        LogTool.logI("SubscribeAdapter", "name:" + " " + userName);
+                        entity.setUserName(""+ userName);
                         SQTool.getInstance().addData(entity);
                         notifyDataSetChanged();
                         LogTool.logI("SubscribeAdapter", entity.getTitle());
                     }
 
                 } else {
+                    LogTool.logI("是否登录", "没有登录");
                     Intent intent = new Intent(context, LoginActivity.class);
                     context.startActivity(intent);
                     isLogin = true;

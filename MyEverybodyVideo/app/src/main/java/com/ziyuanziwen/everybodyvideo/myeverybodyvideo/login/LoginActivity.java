@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseActivity;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.LogTool;
 
 import java.util.HashMap;
 
@@ -59,6 +60,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 mobLogin();
                 break;
         }
+        // 登录成功
+        // 1.Sp,吧登录结果存入sp ; 用户名, boolean = true
     }
 
     public void mobLogin() {
@@ -91,9 +94,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("name", name);
         editor.putString("icon", icon);
+//        editor.putBoolean("isLogin", true);
         editor.commit();
         platform.removeAccount();
         finish();
+        LogTool.logI("是否登录", "登录");
 
     }
 

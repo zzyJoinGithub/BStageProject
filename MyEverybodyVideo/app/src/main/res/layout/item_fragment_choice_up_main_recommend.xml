@@ -43,11 +43,11 @@
 
         <ImageView
             android:id="@+id/fragment_choiceUpMainRecommendSubscribeIv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/layout_width_fifty"
+            android:layout_height="@dimen/layout_height_fifty"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_twenty"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_five"
             android:src="@mipmap/ic_home_take_dingyue" />
     </RelativeLayout>
 

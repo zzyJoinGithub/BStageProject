@@ -12,6 +12,8 @@ import com.android.volley.Request;
 import com.google.gson.Gson;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.R;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.base.BaseFragment;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.db.SQTool;
+import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.mine.MineEntity;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.OnNetResultListener;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.net.VolleyManager;
 import com.ziyuanziwen.everybodyvideo.myeverybodyvideo.util.ToastTool;
@@ -33,6 +35,7 @@ public class SubscribeFragment extends BaseFragment {
     private ListView subscribeLv;
     private List<SubscribeEntity.DataBean.UperListBean> subscribeEntityList;
     private SubscribeAdapter adapter;
+    private boolean flage;
 
 
     //    绑定布局
@@ -58,12 +61,18 @@ public class SubscribeFragment extends BaseFragment {
     @Override
     protected void initData() {
 
+//        boolean isLogin = preferences.getBoolean("isLogin", true);
+//        LogTool.logI("是否登录", "isLogin" + " " + isLogin);
+
         subscribeEntityList = new ArrayList<>();
         adapter = new SubscribeAdapter(getContext());
+//        adapter.setLogin(isLogin);
+
         postRequest();
         View view = LayoutInflater.from(getContext()).inflate(R.layout.item_fragment_subscribe_foot, null);
         subscribeLv.addFooterView(view);
         subscribeLv.setAdapter(adapter);
+
     }
 
     //    post网络请求
@@ -100,7 +109,7 @@ public class SubscribeFragment extends BaseFragment {
                 adapter.setSubscribeEntityList(subscribeEntityList);
             }
 
-//            当没有解析成功弹出toast
+            //            当没有解析成功弹出toast
             @Override
             public void onFailure(String errMsg) {
 
@@ -108,5 +117,21 @@ public class SubscribeFragment extends BaseFragment {
             }
         });
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        List<MineEntity> data = SQTool.getInstance().queryAllData();
+        for (int i = 0; i < data.size(); i++) {
+            boolean isLogin = data.get(i).isLogin();
+            flage = isLogin;
+        }
+
+
+        // 从sp取值,boolean是true代表登录过
+        // 登录用户名查询数据库,查到他收藏
+
+        // 查数据库
     }
 }

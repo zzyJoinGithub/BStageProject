@@ -67,6 +67,8 @@ public class SQTool {
         ContentValues values = new ContentValues();
         values.put(SQValues.PICTURE_COLUMN, mineEntity.getImage());
         values.put(SQValues.TITLE_COLUMN, mineEntity.getTitle());
+        values.put(SQValues.LOGIN_STATE_COLUMN, mineEntity.isLogin());
+        values.put(SQValues.USER_NAME_COLUMN, mineEntity.getUserName());
         database.insert(SQValues.TABLE_NAME, null, values);
         LogTool.logI("SQTool", mineEntity.getImage() + "\n" + mineEntity.getTitle());
     }
@@ -86,9 +88,15 @@ public class SQTool {
             while (cursor.moveToNext()) {
                 String titles = cursor.getString(cursor.getColumnIndex(SQValues.TITLE_COLUMN));
                 String image = cursor.getString(cursor.getColumnIndex(SQValues.PICTURE_COLUMN));
+                String userName = cursor.getString(cursor.getColumnIndex(SQValues.USER_NAME_COLUMN));
+                boolean isLogin = cursor.getString(cursor.getColumnIndex(SQValues.LOGIN_STATE_COLUMN)).equals(true);
+//                Boolean.parseBoolean("true")
+
                 MineEntity bean = new MineEntity();
                 bean.setTitle(titles);
                 bean.setImage(image);
+                bean.setUserName(userName);
+                bean.setLogin(isLogin);
                 data.add(bean);
             }
         }
