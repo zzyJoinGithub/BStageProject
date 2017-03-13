@@ -13,16 +13,22 @@
         android:id="@+id/channelFrag_showAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="点击显示地址信息显示"
+        android:text="@string/showAddress"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/channelFrag_stopGetAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="停止获取"
+        android:text="@string/stopAddress"
         android:textSize="40sp"
         android:visibility="gone" />
+    <Button
+        android:id="@+id/channelFrag_gotoMap"
+        android:layout_below="@id/channelFrag_showAddress"
+        android:text="@string/gotoShowAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

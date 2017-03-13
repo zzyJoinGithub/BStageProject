@@ -27,5 +27,11 @@
     <string name="forgetPassword">忘记密码</string>
     <string name="newUserLogon">新用户注册</string>
     <string name="loginPassword">登录密码</string>
+    <string name="showAddress">点击显示地址信息显示</string>
+    <string name="stopAddress">停止获取</string>
+    <string name="gotoShowAddress">获取定位地图</string>
+    <string name="animate">Animate</string>
+    <string name="zoom_in">+</string>
+    <string name="zoom_out">—</string>
 
 </resources>

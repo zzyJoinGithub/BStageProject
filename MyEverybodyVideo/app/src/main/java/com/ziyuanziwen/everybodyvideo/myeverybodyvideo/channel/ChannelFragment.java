@@ -1,6 +1,7 @@
 package com.ziyuanziwen.everybodyvideo.myeverybodyvideo.channel;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -72,6 +73,7 @@ public class ChannelFragment extends BaseFragment implements View.OnClickListene
         showAddressTv = byView(view, R.id.channelFrag_showAddress);
         //获取地图控件引用
         mMapView = byView(view,R.id.channelFrag_mapView);
+        byView(view,R.id.channelFrag_gotoMap).setOnClickListener(this);
 
     }
 
@@ -109,6 +111,9 @@ public class ChannelFragment extends BaseFragment implements View.OnClickListene
                 break;
             case R.id.channelFrag_stopGetAddress:
                 mLocationClient.stopLocation();//停止定位后，本地定位服务并不会被销毁
+                break;
+            case R.id.channelFrag_gotoMap:
+                mContext.startActivity(new Intent(mContext,ChannelActivity.class));
                 break;
         }
     }
